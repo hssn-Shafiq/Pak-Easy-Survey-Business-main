@@ -6,6 +6,10 @@
 @section('content')
 
     <a href="{{ route('process.payment') }}" class="btn btn-primary">Admin Dashboard</a>
+    <a href="{{ route('admin.withdrawals.index') }}" class="btn btn-primary">View Withdrawal Requests</a>
+    <a href="{{ route('approved-withdrawals') }}">Approved Withdrawal Users</a>
+
+
 
     <main>
         <section id="intro">

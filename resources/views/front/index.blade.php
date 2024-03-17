@@ -14,6 +14,8 @@
         @elseif (Auth::check() && Auth::user()->admin_approvel_status === 'Rejected')
             <p>Your account approval request has been rejected. Please contact support for more information.</p>
         @endif
+       
+
 
         <section id="banner-main">
             <div id="intro-example" class="container-fluid p-5 d-flex align-items-center   ">

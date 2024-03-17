@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SelectController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserStatsController;
+use App\Http\Controllers\withdrawalcontroller;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -97,4 +99,27 @@ Route::post('/admin/approve/{id}', [PaymentController::class, 'approveUser'])->n
 Route::get('/admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.reject');
 Route::get('/admin/dashboard', [PaymentController::class, 'dashboard'])->name('process.payment');
 
-// Route::get('/customer', [FrontController::class, 'customer'])->name('customer')->middleware('approved');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'userindex'])->name('user.withdrawals');
+
+    Route::get('/withdraw', 'App\Http\Controllers\withdrawalcontroller@create')->name('front.withdraw');
+    Route::post('/withdraw', 'App\Http\Controllers\withdrawalcontroller@store')->name('withdrawals.store');
+});
+
+Route::get('/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'index'])->name('admin.withdrawals.index');
+Route::get('/admin/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'index'])->name('admin.withdrawals.index');
+
+Route::post('/admin/withdrawals/{withdrawal}/approve', [App\Http\Controllers\withdrawalcontroller::class, 'approve'])->name('admin.withdrawals.approve');
+Route::post('/admin/withdrawals/{withdrawal}/reject', [App\Http\Controllers\withdrawalcontroller::class, 'reject'])->name('admin.withdrawals.reject');
+Route::get('/approved-withdrawals', 'App\Http\Controllers\withdrawalcontroller@approvedWithdrawals')->name('approved-withdrawals');
+
+
+
+// payment method select
+
+Route::get('selects', [SelectController::class, 'index']);
+Route::get('add-select', [SelectController::class, 'create']);
+Route::post('add-select', [SelectController::class, 'store']);
+Route::get('edit-select/{id}', [SelectController::class, 'edit']);
+Route::put('update-select/{id}', [SelectController::class, 'update']);
+Route::delete('delete-select/{id}', [SelectController::class, 'destroy']);

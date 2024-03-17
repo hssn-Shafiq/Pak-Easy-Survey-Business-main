@@ -8,12 +8,9 @@
         <tr>
             <th>Name</th>
             <th>Email</th>
-            {{-- <th>Our Bank</th> --}}
             <th>Bank Username</th>
             <th>Sender Number</th>
             <th>TRX Number</th>
-            <th>Payment Status</th>
-            <th>Payment Date Time</th>
             <th>Status</th>
             <th>Actions</th>
         </tr>
@@ -23,12 +20,9 @@
             <tr>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                {{-- <td>{{ $user->our_bank }}</td> --}}
                 <td>{{ $user->bank_username }}</td>
                 <td>{{ $user->sender_number }}</td>
                 <td>{{ $user->TRX_number }}</td>
-                <td>{{ $user->payment_status }}</td>
-                <td>{{ $user->payment_date_time }}</td>
                 <td>
                     @if ($user->admin_approvel_status === 'Pending')
                         <span class="pending">Pending</span>
