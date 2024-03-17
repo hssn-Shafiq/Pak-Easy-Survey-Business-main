@@ -4,6 +4,9 @@
 
 
 @section('content')
+
+    <a href="{{ route('process.payment') }}" class="btn btn-primary">Admin Dashboard</a>
+
     <main>
         <section id="intro">
             <div id="intro-example" class="container-fluid p-5 d-flex align-items-center   ">
@@ -26,31 +29,31 @@
 
         <!-- start Dollar Section-->
         <section id="cards-main-admin">
-        <div class="container-fluid">
-            <div class="row" id="D-container">
-                <div class="col-md-4" id="dollar">
-                    <img src="assets/images/Vector (9).png" alt="" class="img-fluid" class="img-fluid"
-                        width="60">
-                    <h4 class="py-3 ps-1">{{ $totalUsers }}</h4 class="py-3 ps-1">
-                    <p><a href="{{ route('user-stats.index') }}">Total Customer</a></p>
-                </div>
-                <div class="col-md-4" id="dollar">
-                    <img src="assets/images/Vector (10).png" alt="" class="img-fluid" class="img-fluid"
-                        width="60">
-                    <h4 class="py-3 ps-1">10 Requests</h4 class="py-3 ps-1">
-                    <p>Payment Pending Requests</p>
+            <div class="container-fluid">
+                <div class="row" id="D-container">
+                    <div class="col-md-4" id="dollar">
+                        <img src="assets/images/Vector (9).png" alt="" class="img-fluid" class="img-fluid"
+                            width="60">
+                        <h4 class="py-3 ps-1">{{ $totalUsers }}</h4 class="py-3 ps-1">
+                        <p><a href="{{ route('user-stats.index') }}">Total Customer</a></p>
+                    </div>
+                    <div class="col-md-4" id="dollar">
+                        <img src="assets/images/Vector (10).png" alt="" class="img-fluid" class="img-fluid"
+                            width="60">
+                        <h4 class="py-3 ps-1">10 Requests</h4 class="py-3 ps-1">
+                        <p>Payment Pending Requests</p>
+
+                    </div>
+                    <div class="col-md-4" id="dollar">
+                        <img src="assets/images/Vector (11).png" alt="" class="img-fluid" class="img-fluid"
+                            width="60">
+                        <h4 class="py-3 ps-1">Rs. 36.9M</h4 class="py-3 ps-1">
+                        <p>Total Profit</p>
+
+                    </div>
 
                 </div>
-                <div class="col-md-4" id="dollar">
-                    <img src="assets/images/Vector (11).png" alt="" class="img-fluid" class="img-fluid"
-                        width="60">
-                    <h4 class="py-3 ps-1">Rs. 36.9M</h4 class="py-3 ps-1">
-                    <p>Total Profit</p>
-
-                </div>
-
             </div>
-        </div>
         </section>
     </main>
 @endsection

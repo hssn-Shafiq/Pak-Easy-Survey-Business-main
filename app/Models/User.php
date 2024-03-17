@@ -27,7 +27,15 @@ class User extends Authenticatable
         'own_referral_code',
         'referral_code',
         'isAdmin',
+        'our_bank',
+        'bank_username',
+        'sender_number',
+        'TRX_number',
+        'payment_status',
+        'payment_date_time',
+        'admin_approvel_status',
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -64,6 +72,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class, 'referral_code');
     }
-
-
 }
