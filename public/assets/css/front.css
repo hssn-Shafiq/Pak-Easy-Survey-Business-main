@@ -11,17 +11,20 @@
     --primary-color: rgba(239, 166, 25, 1);
     --text-color: rgba(239, 166, 25, 1);
 }
-.--primary-color {
-    background-color: rgba(239, 166, 25, 1);
+
+
+
+#cards-main,
+#cards-main-customer,
+#cards-main-admin {
+    margin-bottom: 5rem;
 }
 
 input[type="disabled"] {
     color: darkgrey;
     cursor: copy;
 }
-.container {
-    margin-top: 5rem !important;
-}
+
 .navbar {
     border-bottom: 1px solid #00000024;
 
@@ -91,21 +94,17 @@ input[type="disabled"] {
 #intro-example {
     overflow: hidden;
     height: auto;
-    background: linear-gradient(
-            180deg,
+    background: linear-gradient(180deg,
             rgba(0, 0, 0, 0.2) 0%,
             rgba(0, 0, 0, 0.154167) 23.44%,
-            rgba(0, 0, 0, 0) 100%
-        ),
-        conic-gradient(
-            from 129.43deg at 12.74% 26.95%,
+            rgba(0, 0, 0, 0) 100%),
+        conic-gradient(from 129.43deg at 12.74% 26.95%,
             #efa619 0deg,
             rgba(17, 171, 207, 0.416667) 153.75deg,
             rgba(17, 171, 207, 0.416667) 168.75deg,
             rgba(17, 171, 207, 0.381944) 305.62deg,
             rgb(207 103 17 / 85%),
-            #efa619 360deg
-        );
+            #efa619 360deg);
 }
 
 #intro-example .mask .image {
@@ -132,7 +131,9 @@ input[type="disabled"] {
     font-family: "Poppins";
     font-weight: 300;
 }
-
+/* ************************************
+        Intro Banner Ends
+************************************* */
 #D-container {
     display: flex;
     justify-content: space-around;
@@ -172,19 +173,27 @@ input[type="disabled"] {
 
 #dollar p {
     font-weight: bold;
+
     a {
         text-decoration: none;
         color: black;
     }
 }
+/* ************************************
+        Navbar Ends
+************************************* */
 
-/* mid pic section start */
+
+/* ************************************
+        Explore Massege Main Starts
+************************************* */
+
 #op-pic {
     justify-content: space-around;
     border: 2px solid var(--primary-color);
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
 }
 
 #op-pic img {
@@ -192,27 +201,6 @@ input[type="disabled"] {
     height: 100px;
 }
 
-/* 2nd page picture */
-#op2-pic {
-    justify-content: space-around;
-    margin-top: 50px;
-    left: 40%;
-    position: relative;
-    overflow: hidden;
-    border: 1px black solid;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-}
-
-#op2-pic img {
-    width: 100px;
-    height: 100px;
-    margin-top: 50px;
-
-    position: relative;
-    right: 10px;
-}
 
 h4 {
     font-weight: 700;
@@ -251,9 +239,11 @@ h4 {
 }
 
 #about p {
-    word-spacing: 15px;
-    width: 250px;
-    text-align: start;
+    width: auto;
+    text-align: justify;
+    font-weight: 600;
+    padding-right: 30px;
+    margin-bottom: 5px;
 }
 
 #about .icon i {
@@ -275,6 +265,7 @@ h4 {
     color: black;
     font-weight: 700;
     margin: 10px;
+    width: fit-content;
 }
 
 .footer.copyright {
@@ -330,6 +321,7 @@ user stat page
     width: 100%;
     border-collapse: collapse;
 }
+
 .user-stat-table thead tr th {
     padding: 0.75rem;
     text-align: left;
@@ -338,9 +330,11 @@ user stat page
     color: #fff;
     border: 1px solid #ebebeb8b;
 }
+
 .user-stat-table tbody tr:nth-child(even) {
     background-color: #f0eded;
 }
+
 .user-stat-table tbody tr td {
     padding: 0.75rem;
     border: 1px solid #f0eded;
@@ -352,14 +346,17 @@ terms and conditions
 .terms-condition h5 {
     font-size: 20px !important;
 }
+
 .terms-condition li {
     text-align: justify;
     font-size: 16px;
     margin: 10px;
 }
+
 .terms-condition p {
     text-align: justify;
 }
+
 .terms-condition a {
     text-decoration: none;
 }
@@ -376,40 +373,6 @@ terms and conditions
 @media (max-width: 768px) {
     #intro-example {
         height: auto;
-    }
-
-    #intro-example .mask .image {
-        /* padding: 3rem; */
-        height: 200px;
-        width: 200px;
-    }
-
-    #intro-example .mask .image-col {
-        justify-content: center !important;
-    }
-
-    #intro-example .mask .title {
-        font-size: 36px;
-    }
-
-    #intro-example .mask .description {
-        width: 100%;
-        font-size: 20px;
-        line-height: 32px;
-    }
-}
-
-@media (max-width: 425px) {
-    .navbar .navbar-nav {
-        gap: 0px !important;
-    }
-
-    .image img {
-        width: 80px !important;
-    }
-
-    #intro-example {
-        height: auto;
         justify-content: center;
         padding: 0rem !important;
     }
@@ -419,9 +382,11 @@ terms and conditions
         justify-content: center;
         gap: 2rem;
     }
+
     #intro-example .mask .description-col {
         text-align: center !important;
     }
+
     #intro-example .mask .image {
         /* padding: 3rem; */
         height: 150px;
@@ -446,6 +411,65 @@ terms and conditions
         padding: 2rem;
     }
 
+    #op-pic {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 425px) {
+    .navbar .navbar-nav {
+        gap: 0px !important;
+    }
+
+    .image img {
+        width: 80px !important;
+    }
+
+    #intro-example {
+        height: auto;
+        justify-content: center;
+        padding: 0rem !important;
+    }
+
+    #intro-example .mask {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    #intro-example .mask .description-col {
+        text-align: center !important;
+    }
+
+    #intro-example .mask .image {
+        /* padding: 3rem; */
+        height: 150px;
+        width: 150px;
+    }
+
+    #intro-example .mask .image-col {
+        justify-content: center !important;
+    }
+
+    #intro-example .mask .title {
+        font-size: 35px;
+    }
+
+    #intro-example .mask .description {
+        font-size: 20px;
+        margin-bottom: 0px !important;
+    }
+
+    #intro-example .mask .image {
+        margin-left: 0px;
+        padding: 2rem;
+    }
+
+    #dollar {
+        width: 250px;
+    }
+
     .pic-circle {
         margin-top: 40px;
         position: relative;
@@ -461,6 +485,11 @@ terms and conditions
         padding-bottom: 0;
     }
 
+    #op-pic {
+        width: 200px !important;
+        height: 200px !important;
+    }
+
     #op2-pic {
         left: 22%;
     }
@@ -473,6 +502,7 @@ terms and conditions
     .link {
         margin-top: 20px;
     }
+
     #footer-start .row {
         padding: 0rem !important;
     }

@@ -5,6 +5,7 @@
 @section('content')
 
     <main>
+        <section id="banner-main">
         <div id="intro-example" class="container-fluid p-5 d-flex align-items-center   ">
             <div class="row mask d-flex justify-content-center align-items-center w-100 p-3">
                 <div class="col-12 col-lg-7 description-col text-white d-flex justify-content-center  flex-column">
@@ -22,7 +23,10 @@
             </div>
 
         </div>
+        </section>
+
         <!-- start Dollar Section-->
+        <section id="cards-main">
         <div class="container-fluid">
             <div class="row" id="D-container">
                 <div class="col-md-4" id="dollar">
@@ -48,15 +52,18 @@
 
             </div>
         </div>
+        </section>
+
+        <section id="welcome-messege-main">
         <div class="container">
             <div class="row" id="row-wel">
-                <div class="col-md-6 d-flex justify-content-center justify-content-lg-end  pe-0 pe-lg-5">
-                    <div class= "d-flex align-items-center" id="op-pic" style="width: 240px;height:240px">
+                <div class="col-md-5 d-flex justify-content-center justify-content-lg-end pe-lg-5">
+                    <div class= "d-flex align-items-center" id="op-pic">
                         <img src="assets/images/Vector (4).png" alt="">
                     </div>
                 </div>
-                <div class="col-md-6 pt-4" id="welcome">
-                    <h5>Welcome EasyBusinessSurvey</h5>
+                <div class="col-md-7 pt-4" id="welcome">
+                    <h5>Welcome To Pak EasyBusinessSurvey</h5>
                     <h2>Simple Profitable Conveniently</h2>
                     <p>1. Point1</p>
                     <p>2. Point2</p>
@@ -66,7 +73,7 @@
 
             </div>
         </div>
-
+        </section>
 
 
 

@@ -21,10 +21,11 @@
                     </div>
 
                 </div>
-
             </div>
         </section>
+
         <!-- start Dollar Section-->
+        <section id="cards-main-admin">
         <div class="container-fluid">
             <div class="row" id="D-container">
                 <div class="col-md-4" id="dollar">
@@ -50,5 +51,6 @@
 
             </div>
         </div>
+        </section>
     </main>
 @endsection
