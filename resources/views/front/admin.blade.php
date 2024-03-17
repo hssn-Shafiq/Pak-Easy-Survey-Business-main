@@ -4,23 +4,6 @@
 
 
 @section('content')
-<<<<<<< HEAD
-<!--=======Main Body Starts Here=======-->
-<main>
-    <!--=======Intro-Section Starts Here=======-->
-    <section id="intro">
-        <div id="intro-example" class="container-fluid p-5 d-flex align-items-center   ">
-            <div class="row mask d-flex justify-content-center align-items-center w-100 p-3">
-                <div class="col-12 col-lg-7 description-col text-white d-flex justify-content-center  flex-column">
-                    <h1 class="mb-4 title">Welcome To Admin Dashboard</h1>
-                    <h5 class="mb-4 description">
-                        A Profitable platform for high-margin investment
-                    </h5>
-                </div>
-                <div class="col-12 col-lg-5 image-col text-center d-flex justify-content-end">
-                    <div class="image d-flex justify-content-center align-items-center">
-                        <img src="assets/images/Vector.png" class="img-fluid" alt="" width="150">
-=======
 
     <a href="{{ route('process.payment') }}" class="btn btn-primary">Admin Dashboard</a>
 
@@ -33,7 +16,6 @@
                         <h5 class="mb-4 description">
                             A Profitable platform for high-margin investment
                         </h5>
->>>>>>> fba8960b30b23e531117be0afe5cacd6724edba5
                     </div>
                 </div>
             </div>

@@ -6,6 +6,16 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body fills the viewport height */
+    margin: 0;
+  }
+  
+  .content {
+    flex: 1; /* Fill remaining vertical space */
+  }
 
 :root {
     --primary-color: rgba(239, 166, 25, 1);
@@ -163,7 +173,7 @@ input[type="disabled"] {
     border-radius: 10px;
     box-shadow: 0px 6px 10px 0px rgba(30, 31, 31, 0.4),
         10px -6px 10px 0px rgb(222, 222, 222) inset;
-    text-align: justify;
+    text-align: start;
     align-items: center;
     padding: 20px;
     justify-content: flex-start;
@@ -324,6 +334,9 @@ h4 {
     padding: 10px;
     text-align: center;
     background-color: #efa619;
+   padding: 10px 0; /* Adjust padding as needed */
+  text-align: center;
+  border-top: 1px solid #ddd; /* Add border for separation */ 
 }
 
 .footer.copyright span,
@@ -334,6 +347,23 @@ h4 {
     font-weight: 400 !important;
     letter-spacing: 1.1px;
     text-decoration: none;
+}
+
+.counter {
+    color: black; /* Default color */
+}
+.counter.color1 {
+    color: green; /* Color for lower values */
+}
+.counter.color2 {
+    color: orange; /* Color for medium values */
+}
+.counter.color3 {
+    color: red; /* Color for higher values */
+}
+.dropdown-item:focus, .dropdown-item:hover{
+background-color: white  !important;
+color: black;
 }
 /* ************************************
        Footer Section Starts
@@ -391,7 +421,23 @@ conic-gradient(from 129.43deg at 12.74% 26.95%,
     /* opacity: 0; Start with opacity 0 */
     transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
 }
+.withdraw-form {
+    max-width: 900px;
+    filter: none !important;;
+    width: 700px !important;
+    margin: 0 auto;
 
+    span{
+        font-size: 12px;
+        color: rgb(135, 135, 135);
+        font-weight: bold;
+    }
+}
+.withdraw-form .form-select:focus{
+    border: none;
+    box-shadow: none !important;
+    outline: none;
+}
 
 /* ************************************
         customer-dashboard-banner Starts

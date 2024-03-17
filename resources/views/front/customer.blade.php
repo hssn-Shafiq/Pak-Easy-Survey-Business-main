@@ -36,15 +36,15 @@
                 {{-- @if ($userStats) --}}
                 <div class="col-md-4" id="dollar">
                     <img src="assets/images/Vector (1).png" alt="">
-                    <h4 class="text-bold py-3 ps-1">Rs.
+                    <h3 class="text-bold py-3 ps-1">Rs.
                         {{ $userStats->earnings + $userStats->reviews()->count() * 10 }}
-                    </h4>
+                    </h3>
                     <p>Your Total Balance</p>
                 </div>
                 {{-- @endif --}}
                 <div class="col-md-4" id="dollar">
                     <img src="assets/images/Vector (2).png" alt="">
-                    <h4 class="text-bold py-3 ps-1">Level</h4>
+                    <h3 class="text-bold py-3 ps-1">Level</h3>
                     <p>Your level is {{ $userLevel }} out of 12</p>
                 </div>
                 <div class="col-md-4" id="dollar">
