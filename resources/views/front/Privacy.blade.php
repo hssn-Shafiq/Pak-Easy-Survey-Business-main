@@ -95,9 +95,9 @@
 
         </div>
     </main>
-    <div class="footer copyright">
+    <footer class="footer copyright">
         <span>©All Right Reserved <a href="#">EasyBusinessSurvey.Com</a></span>
-    </div>
+    </footer>
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

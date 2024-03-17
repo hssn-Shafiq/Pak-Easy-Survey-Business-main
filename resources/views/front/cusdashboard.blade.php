@@ -7,7 +7,6 @@
     <title>PakEasyBusinesSurvey- A Merging Platform to Earn Through Surveys and Referrals</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/front.css') }}">
-    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
     <!-- bootstrap cdn -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -91,101 +90,56 @@
         </div>
     </nav>
     <!--=======Navbar Ends Here=======-->
-    <div class="container-fluid px-0">
-        @yield('content')
-    </div>
-    <!--=======Footer Starts Here=======-->
-    <div class="container-fluid" id="footer-start">
-        <div class="row align-items-center">
-            <div class="col-md-4" id="about">
-                <div class="brand ">
-                    <a class="navbar-brand" href="index.html" style="float:left;">
-                        <img src="assets/images/ebslogo.png" alt="PakEasy-BusinessSurvey-Logo" width="100">
-                    </a>
-                </div>
-                <div class="description">
-                    <p>
-                        Pak Easy Business Survey offers users a simple way to earn money through product surveys and referrals. Join now to start earning effortlessly!</p>
-                </div>
-                <div class="icon d-flex align-items-center gap-2">
-                    <a href="https://www.facebook.com/profile.php?id=61552257843543&mibextid=nb1MFm3jZYALyyMy"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" title="Not on Instagram Yet...😊"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" title="Not on Youtube Yet...😊"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su"><i class="fa-brands fa-whatsapp"></i></a>
+    <main>
+        <!--=======customer-dashboard-banner Starts Here=======-->
+        <section id="customer-dashboard-banner">
+            <div class="container-fluid p-5  rounded cust-banner-main">
+                <h1>Jumbotron Example</h1>
+                <p>Lorem ipsum...</p>
+                <div class="row bg-transparent" id="D-container" >
+                <div class="col-md-4 bg-light" id="dollar">
+                    <img src="assets/images/Vector (5).png" alt="" class="img-fluid" class="img-fluid" width="60">
+                    <h4 class="text-bold pt-3  ps-1"><p>12</p></h4>
+                    <a href="" class="text-decoration-none text-dark"><p>Registered Users</p></a>
+                </div> 
+                <div class="col-md-4 bg-light" id="dollar">
+                    <img src="assets/images/Vector (7).png" alt="" class="img-fluid" class="img-fluid" width="60">
+                    <h4 class="text-bold py-3 ps-1">Rs. 36.9M</h4>
+                    <a href="" class="text-decoration-none text-dark"><p>Withdrawal Balance</p></a>
                 </div>
             </div>
-            <div class="col-md-4 link" id="links">
-                <h3>Quick Links</h3>
-                <a href="{{ route('whyus') }}">1. Why Us</a>
-                <a href="#">2. Affiliate Program</a>
-                <!-- <a href="#">3. Join Us</a> -->
-                <a href="{{ route('register') }}">3. Join Us</a>
             </div>
-            <div class="col-md-4" id="links">
-                <h3>Pages</h3>
-                <a href="{{ route('Disclaimer') }}">1. Disclaimer</a>
-                <a href="{{ route('Privacy') }}">2. Privacy And Policy</a>
-                <a href="{{ route('Condition') }}">3. Terms & Conditions</a>
+        </section>
+        <!--=======customer-dashboard-banner Ends Here=======-->
+
+        <div class="mt-3 p-5">
+            <div class="title text-center">
+                <h1>Referral Users</h1>
+            </div>
+            <div style="overflow-x: auto;" class="mt-4">
+                <table class="user-stat-table">
+                    <thead class=" --primary-color ">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Referral Code</th>
+                            <th>Registration Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($allReferralUsers as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->referral_code }}</td>
+                            <td>{{ $user->created_at->format('Y-m-d') }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-    <footer class="footer copyright">
-        <span>©All Right Reserved <a href="#">EasyBusinessSurvey.Com</a></span>
-    </footer>
-    <!--=======Footer Ends Here=======-->
-
-
-    <!--=======JS Code=======-->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hiddenReferralCodeElement = document.getElementById('hiddenReferralCode');
-            const copyReferralCodeButton = document.getElementById('copyReferralCode');
-
-            copyReferralCodeButton.addEventListener('click', function() {
-                copyReferralCode();
-            });
-
-            function copyReferralCode() {
-                const referralCode = hiddenReferralCodeElement.value;
-                navigator.clipboard.writeText(referralCode).then(function() {
-                    showToast('Referral code copied! Paste it wherever you want.');
-                }, function() {
-                    showToast('Failed to copy referral code.');
-                });
-            }
-
-            function showToast(message) {
-                const toastElement = document.getElementById('toast');
-                toastElement.innerText = message;
-                toastElement.classList.add('show');
-
-                setTimeout(function() {
-                    toastElement.classList.remove('show');
-                }, 2000);
-            }
-        });
-
-
-        function copyShareableLink() {
-            const shareableLinkInput = document.getElementById('shareable_link');
-            shareableLinkInput.select();
-            document.execCommand('copy');
-            alert('Link copied to clipboard');
-        }
-
-        function copyReferralCode() {
-            var referralCode = document.getElementById('hiddenReferralCode').value;
-            navigator.clipboard.writeText(referralCode).then(function() {
-                alert('Referral code copied to clipboard: ' + referralCode);
-            }, function() {
-                alert('Failed to copy referral code to clipboard.');
-            });
-        }
-    </script>
-
-    <!-- Bootstrap JS Link -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    </main>
 </body>
 
 </html>
