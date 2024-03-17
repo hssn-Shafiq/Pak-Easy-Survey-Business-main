@@ -16,41 +16,6 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid px-4 px-m-0">
-            <a class="navbar-brand" href="#">
-                <img src="assets/images/ebslogo.png" alt="" width="100">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-5 ">
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="javascript:void(0);">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Why Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Affiliate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Sign In</a>
-                    </li>
-                </ul>
-                <div class="d-flex">
-                    <button class="btn">Language</button>
-                </div>
-            </div>
-        </div>
-    </nav>
     <main>
         <div class="container mt-5 terms-condition">
             <h1 class="mb-4">Privacy Policy</h1>

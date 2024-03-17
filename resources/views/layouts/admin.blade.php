@@ -62,10 +62,10 @@
                         There Will be Place all The description About The Company</p>
                 </div>
                 <div class="icon d-flex align-items-center gap-2">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                    <i class="fa-brands fa-whatsapp"></i>
+                <a href="https://www.facebook.com/profile.php?id=61552257843543&mibextid=nb1MFm3jZYALyyMy"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" title="Not on Instagram Yet...😊"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" title="Not on Youtube Yet...😊"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="col-md-4 link" id="links">

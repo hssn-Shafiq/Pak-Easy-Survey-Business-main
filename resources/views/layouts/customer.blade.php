@@ -63,8 +63,8 @@
                 </ul>
 
                 <div class="d-flex">
-                    <li class="nav-item dropdown dropstart">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                    <li class="nav-item dropdown ">
+                        <a id="navbarDropdown" class="nav-link p-0 p-lg-2 dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Refer a Friend
                         </a>
@@ -83,7 +83,7 @@
                                         <input type="hidden" id="hiddenReferralCode"
                                             value="{{ Auth::user()->own_referral_code }}">
                                         <button class="btn btn-sm btn-outline-secondary"
-                                            onclick="copyReferralCode()">Copy</button>
+                                            onclick="copyReferralCode()">Copy Code</button>
                                     </div>
                                 </a></li>
                         </ul>
@@ -95,7 +95,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid px-0">
         @yield('content')
     </div>
 
@@ -110,20 +110,21 @@
                 </div>
                 <div class="description">
                     <p>
-                        There Will be Place all The description About The Company</p>
+                    Pak Easy Business Survey offers users a simple way to earn money through product surveys and referrals. Join now to start earning effortlessly!</p>
                 </div>
                 <div class="icon d-flex align-items-center gap-2">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                    <i class="fa-brands fa-whatsapp"></i>
+                    <a href="https://www.facebook.com/profile.php?id=61552257843543&mibextid=nb1MFm3jZYALyyMy"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" title="Not on Instagram Yet...😊"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" title="Not on Youtube Yet...😊"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="col-md-4 link" id="links">
                 <h3>Quick Links</h3>
                 <a href="{{ route('whyus') }}">1. Why Us</a>
                 <a href="#">2. Affiliate Program</a>
-                <a href="#">3. Join Us</a>
+                <!-- <a href="#">3. Join Us</a> -->
+                <a href="{{ route('register') }}">3. Join Us</a>
 
             </div>
             <div class="col-md-4" id="links">

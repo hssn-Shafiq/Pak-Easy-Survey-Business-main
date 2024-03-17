@@ -6,7 +6,7 @@
 
 @section('content')
     <main>
-
+    <section id="banner-main-customer">
         <div id="intro-example" class="container-fluid p-5 d-flex align-items-center   ">
             <div class="row mask d-flex justify-content-center align-items-center w-100 p-3">
                 <div class="col-12 col-lg-7 description-col text-white d-flex justify-content-center  flex-column">
@@ -26,9 +26,11 @@
                 </div>
 
             </div>
-
         </div>
+    </section>
+
         <!-- start Dollar Section-->
+        <section id="cards-main-customer">
         <div class="container-fluid ">
             <div class="row" id="D-container">
                 {{-- @if ($userStats) --}}
@@ -53,6 +55,8 @@
 
             </div>
         </div>
+        </section>
+        <section id="Explore-massege-main">
         <div class="container mt-5">
             <div class="row d-flex  justify-content-center" id="op-pic-main">
                 <div class="d-flex align-items-center" id="op-pic"><img src="assets/images/Vector (4).png"
@@ -65,8 +69,7 @@
                         href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su">WhatsappGroup</a></p>
             </div>
         </div>
-
-
+        </section>
     </main>
 
 @endsection
