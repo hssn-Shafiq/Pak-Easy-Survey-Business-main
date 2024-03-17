@@ -65,5 +65,5 @@ class User extends Authenticatable
         return $this->hasMany(Product::class, 'referral_code');
     }
 
-    
+
 }
