@@ -56,12 +56,20 @@
                             {{ Auth::user()->name }}
                         </a>
 
-                        <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
-                        </ul>
-                    </li>
-
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); this.closest('form').submit();">
+                                            Logout
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
                     @endguest
+
                 </ul>
 
                 <div class="d-flex">
@@ -105,13 +113,20 @@
                 </div>
                 <div class="description">
                     <p>
+<<<<<<< HEAD
                         Pak Easy Business Survey offers users a simple way to earn money through product surveys and referrals. Join now to start earning effortlessly!</p>
+=======
+                        Pak Easy Business Survey offers users a simple way to earn money through product surveys and
+                        referrals. Join now to start earning effortlessly!</p>
+>>>>>>> fba8960b30b23e531117be0afe5cacd6724edba5
                 </div>
                 <div class="icon d-flex align-items-center gap-2">
-                    <a href="https://www.facebook.com/profile.php?id=61552257843543&mibextid=nb1MFm3jZYALyyMy"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61552257843543&mibextid=nb1MFm3jZYALyyMy"><i
+                            class="fa-brands fa-facebook"></i></a>
                     <a href="#" title="Not on Instagram Yet...😊"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" title="Not on Youtube Yet...😊"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su"><i
+                            class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="col-md-4 link" id="links">

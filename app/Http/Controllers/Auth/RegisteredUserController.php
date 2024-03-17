@@ -37,6 +37,10 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'referral_code' => ['nullable', 'exists:' . User::class . ',own_referral_code'],
+            'bank_username' => ['required', 'string'],
+            'sender_number' => ['required', 'numeric'],
+            'TRX_number' => ['required', 'string'],
+
         ]);
 
         $referralCode = Str::random(8);
@@ -45,10 +49,16 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'own_referral_code' => $referralCode,
             'referral_code' => $request->referral_code,
-
+            'own_referral_code' => $referralCode,
+            'bank_username' => $request->bank_username,
+            'sender_number' => $request->sender_number,
+            'TRX_number' => $request->TRX_number,
+            'payment_status' => 'Pending',
+            'payment_date_time' => $request->payment_date_time,
+            'admin_approvel_status' => 'Pending',
         ]);
+
 
 
         $userStats = UserStats::create([

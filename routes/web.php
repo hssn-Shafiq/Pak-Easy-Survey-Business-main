@@ -1,14 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserStatsController;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\FrontController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -59,7 +60,7 @@ Route::get('/', [FrontController::class, 'user'])->name('user');
 Route::get('/user/earnings', [UserStatsController::class, 'showEarning'])->name('user.earnings');
 
 // show earing
-Route::get('/customer', [UserStatsController::class, 'showEarning'])->name('customer');
+Route::get('/customer', [UserStatsController::class, 'showEarning'])->name('customer')->middleware('approved');
 
 //  show  level
 Route::get('/customer', [UserStatsController::class, 'showLevel'])->name('customer');
@@ -75,14 +76,25 @@ Route::get('/customer/referral-users', [UserStatsController::class, 'referralUse
 
 // register route
 
-Route::get('/front.customer',[RegisteredUserController ::class,'store'])->name('front.customer');
+Route::get('/front.customer', [RegisteredUserController::class, 'store'])->name('front.customer');
 
 // pages
 
-Route::get('/whyus',[FrontController::class,'whyus'])->name('whyus');
-Route::get('/Disclaimer',[FrontController::class,'Disclaimer'])->name('Disclaimer');
-Route::get('/Privacy',[FrontController::class,'Privacy'])->name('Privacy');
-Route::get('/Condition',[FrontController::class,'Condition'])->name('Condition');
+Route::get('/whyus', [FrontController::class, 'whyus'])->name('whyus');
+Route::get('/Disclaimer', [FrontController::class, 'Disclaimer'])->name('Disclaimer');
+Route::get('/Privacy', [FrontController::class, 'Privacy'])->name('Privacy');
+Route::get('/Condition', [FrontController::class, 'Condition'])->name('Condition');
 
-Route::get('/cusdashboard',[FrontController::class,'cusdashboard'])->name('cusdashboard');
 
+// routes/web.php
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::post('/admin/approve-user/{user}', 'paymentcontroller @approveUser')->name('admin.approve.user');
+});
+
+Route::get('/admin/requests', [PaymentController::class, 'viewRequests'])->name('admin.requests');
+Route::post('/admin/approve/{id}', [PaymentController::class, 'approveUser'])->name('admin.approve');
+
+Route::get('/admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.reject');
+Route::get('/admin/dashboard', [PaymentController::class, 'dashboard'])->name('process.payment');
+
+// Route::get('/customer', [FrontController::class, 'customer'])->name('customer')->middleware('approved');
