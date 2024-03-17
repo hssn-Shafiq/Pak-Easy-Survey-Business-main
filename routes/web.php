@@ -66,6 +66,7 @@ Route::get('/customer', [UserStatsController::class, 'showLevel'])->name('custom
 
 // user show
 Route::get('/', [UserStatsController::class, 'ShowgetTotalUsers'])->name('user');
+Route::get('/admin', [UserStatsController::class, 'TotalUsers'])->name('admin');
 
 
 
@@ -76,7 +77,7 @@ Route::get('/customer/referral-users', [UserStatsController::class, 'referralUse
 
 Route::get('/front.customer',[RegisteredUserController ::class,'store'])->name('front.customer');
 
-// pages 
+// pages
 
 Route::get('/whyus',[FrontController::class,'whyus'])->name('whyus');
 Route::get('/Disclaimer',[FrontController::class,'Disclaimer'])->name('Disclaimer');

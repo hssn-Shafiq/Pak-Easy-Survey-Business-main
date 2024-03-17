@@ -151,4 +151,11 @@ class UserStatsController extends Controller
         $users = User::all();
         return view('front.index', ['totalUsers' => $totalUsers, 'users' => $users]);
     }
+
+    public function TotalUsers()
+    {
+        $totalUsers = User::count();
+        $users = User::all();
+        return view('front.admin', ['totalUsers' => $totalUsers, 'users' => $users]);
+    }
 }

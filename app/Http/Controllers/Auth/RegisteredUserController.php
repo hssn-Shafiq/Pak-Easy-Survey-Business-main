@@ -126,6 +126,6 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect('/');
     }
 }
