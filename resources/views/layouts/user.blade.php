@@ -22,7 +22,7 @@
 </head>
 
 <body>
-
+    <!--=======Navbar Starts Here=======-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid px-4 px-m-0">
             <a class="navbar-brand" href="#">
@@ -81,10 +81,12 @@
             </div>
         </div>
     </nav>
-
+    <!--=======Navbar Ends Here=======-->
     <div class="container-fluid px-0">
         @yield('content')
     </div>
+
+     <!--=======Footer Starts Here=======-->
     <div class="container-fluid" id="footer-start">
         <div class="row align-items-center">
             <div class="col-md-4" id="about">
@@ -122,7 +124,7 @@
             </div>
         </div>
     </div>
-    <div class="footer copyright">
+    <footer class="footer copyright">
         <span>©All Right Reserved <a href="#">EasyBusinessSurvey.Com</a></span>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

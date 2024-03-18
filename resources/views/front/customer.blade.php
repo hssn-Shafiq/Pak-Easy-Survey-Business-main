@@ -4,11 +4,13 @@
 @section('litle', 'Customer Page')
 
 
-
 @section('content')
-    <a href="{{ route('front.withdraw') }}" class="btn btn-primary">Request Withdrawal</a>
-    <a href="{{ route('user.withdrawals') }}" class="btn btn-primary">View Withdrawal Requests</a>
+    <!--=======Main Body Starts Here=======-->
     <main>
+
+        <a href="{{ route('front.withdraw') }}" class="btn btn-primary">Request Withdrawal</a>
+        <a href="{{ route('user.withdrawals') }}" class="btn btn-primary">View Withdrawal Requests</a>
+        <!--=======Intro-Section Starts Here=======-->
         <section id="banner-main-customer">
             <div id="intro-example" class="container-fluid p-5 d-flex align-items-center   ">
                 <div class="row mask d-flex justify-content-center align-items-center w-100 p-3">
@@ -27,38 +29,40 @@
                             <img src="assets/images/Vector.png" class="img-fluid" alt="" width="150">
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
+        <!--=======Intro-Section Ends Here=======-->
 
-        <!-- start Dollar Section-->
+        <!--=======Cards-Section Starts Here=======-->
         <section id="cards-main-customer">
             <div class="container-fluid ">
                 <div class="row" id="D-container">
                     {{-- @if ($userStats) --}}
                     <div class="col-md-4" id="dollar">
                         <img src="assets/images/Vector (1).png" alt="">
-                        <h4 class="text-bold py-3 ps-1">Rs.
-                            {{ $userStats->earnings + $userStats->reviews()->count() * 10 }}</h4>
+                        <h3 class="text-bold py-3 ps-1">Rs.
+                            {{ $userStats->earnings + $userStats->reviews()->count() * 10 }}
+                        </h3>
                         <p>Your Total Balance</p>
                     </div>
                     {{-- @endif --}}
                     <div class="col-md-4" id="dollar">
                         <img src="assets/images/Vector (2).png" alt="">
-                        <h4 class="text-bold py-3 ps-1">Level</h4>
+                        <h3 class="text-bold py-3 ps-1">Level</h3>
                         <p>Your level is {{ $userLevel }} out of 12</p>
                     </div>
                     <div class="col-md-4" id="dollar">
                         <img src="assets/images/Vector (3).png" alt="">
                         <h3>Rs. 36.9M</h3>
                         <p>Your Withdraw Money</p>
-
                     </div>
-
                 </div>
             </div>
         </section>
+        <!--=======Cards-Section Ends Here=======-->
+
+        <!--=======Explore-Messege-Section Starts Here=======-->
         <section id="Explore-massege-main">
             <div class="container mt-5">
                 <div class="row d-flex  justify-content-center" id="op-pic-main">
@@ -73,6 +77,7 @@
                 </div>
             </div>
         </section>
+        <!--=======Explore-Messege-Section Starts Here=======-->
     </main>
-
+    <!--=======Main Body Ends Here=======-->
 @endsection

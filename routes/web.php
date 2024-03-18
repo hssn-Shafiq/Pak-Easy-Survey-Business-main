@@ -86,6 +86,9 @@ Route::get('/whyus', [FrontController::class, 'whyus'])->name('whyus');
 Route::get('/Disclaimer', [FrontController::class, 'Disclaimer'])->name('Disclaimer');
 Route::get('/Privacy', [FrontController::class, 'Privacy'])->name('Privacy');
 Route::get('/Condition', [FrontController::class, 'Condition'])->name('Condition');
+Route::get('/cusdashboard', [FrontController::class, 'cusdashboard'])->name('cusdashboard');
+
+
 
 
 // routes/web.php

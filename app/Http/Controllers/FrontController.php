@@ -41,4 +41,9 @@ class FrontController extends Controller
     {
         return view('front.Condition');
     }
+
+    public function cusdashboard()
+    {
+        return view('front.cusdashboard');
+    }
 }

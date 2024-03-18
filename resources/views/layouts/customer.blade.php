@@ -4,26 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>PakEasyBusinesSurvey- A Merging Platform to Earn Through Surveys and Referrals</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/front.css') }}">
-    <title>@yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <!--=======Navbar Starts Here=======-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid px-4 px-m-0">
             <a class="navbar-brand" href="#">
                 <img src="assets/images/ebslogo.png" alt="" width="100">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -38,21 +38,23 @@
                         <a class="nav-link" href="{{ route('referral-users') }}">Affiliate</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cusdashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('products.index') }}">Product</a>
                     </li>
                     @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sign In</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sign In</a>
+                    </li>
                     @else
-                        <li class="nav-item dropdown profile-dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
-                            </a>
+                    <li class="nav-item dropdown profile-dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
@@ -72,26 +74,20 @@
 
                 <div class="d-flex">
                     <li class="nav-item dropdown ">
-                        <a id="navbarDropdown" class="nav-link p-0 p-lg-2 dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a id="navbarDropdown" class="nav-link p-0 p-lg-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Refer a Friend
                         </a>
                         <ul class="dropdown-menu refered-dropdown" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">
-                                    <input readonly class="input" type="text" id="shareable_link"
-                                        name="shareable_link"
-                                        value="{{ Auth::check() ? route('register') . '?referral_code=' . Auth::user()->own_referral_code : '' }}"
-                                        style="position: absolute; left: -9999px;">
+                                    <input readonly class="input" type="text" id="shareable_link" name="shareable_link" value="{{ Auth::check() ? route('register') . '?referral_code=' . Auth::user()->own_referral_code : '' }}" style="position: absolute; left: -9999px;">
                                     <button class="btn btn-sm btn-outline-secondary" onclick="copyShareableLink()">Share
                                         Link</button>
                                 </a></li>
                             <li><a class="dropdown-item" href="#">
                                     <div>
                                         {{-- <span>Referral Code: {{ Auth::user()->own_referral_code }}</span> --}}
-                                        <input type="hidden" id="hiddenReferralCode"
-                                            value="{{ Auth::user()->own_referral_code }}">
-                                        <button class="btn btn-sm btn-outline-secondary"
-                                            onclick="copyReferralCode()">Copy Code</button>
+                                        <input type="hidden" id="hiddenReferralCode" value="{{ Auth::user()->own_referral_code }}">
+                                        <button class="btn btn-sm btn-outline-secondary" onclick="copyReferralCode()">Copy Code</button>
                                     </div>
                                 </a></li>
                         </ul>
@@ -102,12 +98,11 @@
             </div>
         </div>
     </nav>
-
+    <!--=======Navbar Ends Here=======-->
     <div class="container-fluid px-0">
         @yield('content')
     </div>
-
-
+    <!--=======Footer Starts Here=======-->
     <div class="container-fluid" id="footer-start">
         <div class="row align-items-center">
             <div class="col-md-4" id="about">
@@ -136,7 +131,6 @@
                 <a href="#">2. Affiliate Program</a>
                 <!-- <a href="#">3. Join Us</a> -->
                 <a href="{{ route('register') }}">3. Join Us</a>
-
             </div>
             <div class="col-md-4" id="links">
                 <h3>Pages</h3>
@@ -146,11 +140,13 @@
             </div>
         </div>
     </div>
-    <div class="footer copyright">
+    <footer class="footer copyright">
         <span>©All Right Reserved <a href="#">EasyBusinessSurvey.Com</a></span>
-    </div>
+    </footer>
+    <!--=======Footer Ends Here=======-->
 
 
+    <!--=======JS Code=======-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const hiddenReferralCodeElement = document.getElementById('hiddenReferralCode');
@@ -198,7 +194,7 @@
         }
     </script>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <!-- Bootstrap JS Link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

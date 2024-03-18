@@ -4,22 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Reviews</title>
+    <title>PakEasyBusinesSurvey- A Merging Platform to Earn Through Surveys and Referrals</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/stylesheet.css') }}">
-    <!-- CSS -->
+
+    <!--Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    <div class="container-fluid products-section">
+    <div class="container-fluid overflow-hidden products-section px-0">
         <div class="row text-center product-title p-5">
             <h1>ALL PRODUCTS</h1>
             <h6><a class="btn btn-dark" href="{{route('customer')}}">Return to Page</a></h6>
         </div>
         <div class="container">
-            <div class="row p-5">
+            <div class="row p-2 pb-5">
                 @foreach ($products as $product)
                 @php
                 $review = $product
@@ -31,8 +32,8 @@
                 $timeRemaining = $review ? max(0, $review->created_at->addHours(24)->diffInSeconds(now())) : 0;
                 @endphp
 
-                <div class="col-md-4 col-sm-6">
-                    <div class="product-grid">
+                <div class="col-12 col-lg-4">
+                    <div class="product-grid text-center">
                         <div class="product-image">
                             <a href="#" class="image">
                                 <img src="{{ asset($product->image_url) }}">

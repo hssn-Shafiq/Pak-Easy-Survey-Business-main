@@ -6,13 +6,26 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body fills the viewport height */
+    margin: 0;
+  }
+  
+  .content {
+    flex: 1; /* Fill remaining vertical space */
+  }
 
 :root {
     --primary-color: rgba(239, 166, 25, 1);
     --text-color: rgba(239, 166, 25, 1);
 }
 
-
+.--primary-color{
+    background-color: rgba(239, 166, 25, 1);
+} 
+    
 
 #cards-main,
 #cards-main-customer,
@@ -24,7 +37,9 @@ input[type="disabled"] {
     color: darkgrey;
     cursor: copy;
 }
-
+/* ************************************
+        Navbar Starts
+************************************* */
 .navbar {
     border-bottom: 1px solid #00000024;
 
@@ -91,6 +106,9 @@ input[type="disabled"] {
         Navbar Ends
 ************************************* */
 
+/* ************************************
+        Intro Banner Starts
+************************************* */
 #intro-example {
     overflow: hidden;
     height: auto;
@@ -131,8 +149,13 @@ input[type="disabled"] {
     font-family: "Poppins";
     font-weight: 300;
 }
+
 /* ************************************
         Intro Banner Ends
+************************************* */
+
+/* ************************************
+        Cards Main Starts
 ************************************* */
 #D-container {
     display: flex;
@@ -150,7 +173,7 @@ input[type="disabled"] {
     border-radius: 10px;
     box-shadow: 0px 6px 10px 0px rgba(30, 31, 31, 0.4),
         10px -6px 10px 0px rgb(222, 222, 222) inset;
-    text-align: justify;
+    text-align: start;
     align-items: center;
     padding: 20px;
     justify-content: flex-start;
@@ -179,10 +202,10 @@ input[type="disabled"] {
         color: black;
     }
 }
-/* ************************************
-        Navbar Ends
-************************************* */
 
+/* ************************************
+        Cards Main Ends
+************************************* */
 
 /* ************************************
         Explore Massege Main Starts
@@ -212,8 +235,47 @@ h4 {
 .wa {
     text-align: center;
 }
+/* ************************************
+        Explore Massege Main Ends
+************************************* */
+/* ************************************
+        Welcome Massege Main Starts
+************************************* */
+#row-wel {
+    padding-bottom: 50px;
+}
 
-/* start Footer Section */
+.pic-circle {
+    margin-top: 100px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    padding-top: 45px;
+    padding-left: 50px;
+    border-radius: 50%;
+    margin-left: 50px;
+}
+
+.pic-circle img {
+    width: 100px;
+    height: 100px;
+}
+
+#welcome h5 {
+    font-weight: bold;
+}
+
+#welcome h2 {
+    font-weight: bold;
+    color: #efa619;
+}
+/* ************************************
+        Welcome Massege Main Ends
+************************************* */
+
+/* ************************************
+       Footer Section Starts
+************************************* */
 #about {
     display: grid;
 }
@@ -272,6 +334,9 @@ h4 {
     padding: 10px;
     text-align: center;
     background-color: #efa619;
+   padding: 10px 0; /* Adjust padding as needed */
+  text-align: center;
+  border-top: 1px solid #ddd; /* Add border for separation */ 
 }
 
 .footer.copyright span,
@@ -284,35 +349,28 @@ h4 {
     text-decoration: none;
 }
 
+.counter {
+    color: black; /* Default color */
+}
+.counter.color1 {
+    color: green; /* Color for lower values */
+}
+.counter.color2 {
+    color: orange; /* Color for medium values */
+}
+.counter.color3 {
+    color: red; /* Color for higher values */
+}
+.dropdown-item:focus, .dropdown-item:hover{
+background-color: white  !important;
+color: black;
+}
+/* ************************************
+       Footer Section Starts
+************************************* */
+
 /* 2nd page */
-#row-wel {
-    padding-bottom: 50px;
-}
 
-.pic-circle {
-    margin-top: 100px;
-    width: 200px;
-    height: 200px;
-    border: 1px solid black;
-    padding-top: 45px;
-    padding-left: 50px;
-    border-radius: 50%;
-    margin-left: 50px;
-}
-
-.pic-circle img {
-    width: 100px;
-    height: 100px;
-}
-
-#welcome h5 {
-    font-weight: bold;
-}
-
-#welcome h2 {
-    font-weight: bold;
-    color: #efa619;
-}
 
 /*******************************
 user stat page
@@ -340,9 +398,54 @@ user stat page
     border: 1px solid #f0eded;
 }
 
-/* =================================================================
-terms and conditions
-==================================================================*/
+/* ************************************
+        customer-dashboard-banner Starts
+************************************* */
+#customer-dashboard-banner .cust-banner-main{
+    background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.154167) 23.44%,
+    rgba(0, 0, 0, 0) 100%),
+conic-gradient(from 129.43deg at 12.74% 26.95%,
+    #efa619 0deg,
+    rgba(17, 171, 207, 0.416667) 153.75deg,
+    rgba(17, 171, 207, 0.416667) 168.75deg,
+    rgba(17, 171, 207, 0.381944) 305.62deg,
+    rgb(207 103 17 / 85%),
+    #efa619 360deg);
+    height: 350px;
+    text-align: center;
+}
+#all_referrals_user {
+    /* transform: translateX(-100%); Start off-screen */
+    /* opacity: 0; Start with opacity 0 */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+}
+.withdraw-form {
+    max-width: 900px;
+    filter: none !important;;
+    width: 700px !important;
+    margin: 0 auto;
+
+    span{
+        font-size: 12px;
+        color: rgb(135, 135, 135);
+        font-weight: bold;
+    }
+}
+.withdraw-form .form-select:focus{
+    border: none;
+    box-shadow: none !important;
+    outline: none;
+}
+
+/* ************************************
+        customer-dashboard-banner Starts
+************************************* */
+
+/* ************************************
+         Terms & Conditions  Starts
+************************************* */
 .terms-condition h5 {
     font-size: 20px !important;
 }
@@ -361,15 +464,19 @@ terms and conditions
     text-decoration: none;
 }
 
-/* media */
+/* ************************************
+       Terms & Conditions Ends
+************************************* */
 
+/* ************************************
+        Media Query Starts
+************************************* */
 @media (min-width: 992px) {
     #intro-example {
         height: 500px;
     }
 }
 
-/* Mobile styles */
 @media (max-width: 768px) {
     #intro-example {
         height: auto;
@@ -388,7 +495,6 @@ terms and conditions
     }
 
     #intro-example .mask .image {
-        /* padding: 3rem; */
         height: 150px;
         width: 150px;
     }
@@ -443,7 +549,7 @@ terms and conditions
     }
 
     #intro-example .mask .image {
-        /* padding: 3rem; */
+
         height: 150px;
         width: 150px;
     }
@@ -506,4 +612,16 @@ terms and conditions
     #footer-start .row {
         padding: 0rem !important;
     }
+}
+
+/* ************************************
+        Media Query Ends
+************************************* */
+
+/* ************************************
+        Tables Starts
+************************************* */
+
+.user-stat-table tbody tr:nth-child(even){
+    background-color: #e8e8e8;
 }
