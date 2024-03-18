@@ -55,7 +55,7 @@ Route::get('/referral-users', [UserStatsController::class, 'referralUsers'])->na
 // Front end routes
 
 Route::get('admin', [FrontController::class, 'admin'])->name('admin');
-Route::get('customer', [FrontController::class, 'customer'])->name('customer');
+// Route::get('customer', [FrontController::class, 'customer'])->name('customer');
 Route::get('/', [FrontController::class, 'user'])->name('user');
 
 
