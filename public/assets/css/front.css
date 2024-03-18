@@ -38,6 +38,81 @@ input[type="disabled"] {
     cursor: copy;
 }
 /* ************************************
+        Top Header Starts
+************************************* */
+.top-header{
+
+    .welcome-user-messege p{
+        font-size: 16px;
+        color: var(--primary-color);
+        font-weight: 500;
+    }
+    .check-status-btn .chk-status{
+        color: black;
+        font-weight: bold;
+        background-color: var(--primary-color) !important;
+    }
+    .check-status-btn .chk-status:focus{
+        box-shadow: none;
+    }
+}
+
+#collapseExample .card {
+    position: absolute;
+    width: 75%;
+    right: 26px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    box-shadow: 0px 0px 2px black;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0.25rem;
+    z-index: 1;
+
+    p{
+        text-align: start;
+    }
+    .start-earn-btn{
+        width: 30%;
+    }
+}
+
+@media  (max-width:450px) {
+    .top-header{
+        .welcome-user-messege p{
+            font-size: 12px;
+        }
+        .welcome-user-header{
+            line-height: 0px;
+        }
+        .check-status-btn .chk-status{
+            font-size: 11px;
+            line-height: 17px;
+            padding: 5px;
+        }
+
+    }
+    #collapseExample .card{
+        width: 85%;
+
+        .start-earn-btn{
+            width: 100%;
+        }
+    }
+}
+@media (max-width: 760px) {
+    #collapseExample .card{
+        width: 90%;
+
+        .start-earn-btn{
+            width: 100%;
+        }
+    }
+}
+/* ************************************
         Navbar Starts
 ************************************* */
 .navbar {
@@ -87,7 +162,7 @@ input[type="disabled"] {
 }
 
 .profile-dropdown .dropdown-item:hover {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
     color: white !important;
 }
 

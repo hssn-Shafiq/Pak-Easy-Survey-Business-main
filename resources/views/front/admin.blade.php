@@ -21,6 +21,11 @@
                             A Profitable platform for high-margin investment
                         </h5>
                     </div>
+                    <div class="col-12 col-lg-5 image-col text-center d-flex justify-content-end">
+                    <div class="image d-flex justify-content-center align-items-center">
+                        <img src="assets/images/admin.png" class="img-fluid" alt="" width="150">
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

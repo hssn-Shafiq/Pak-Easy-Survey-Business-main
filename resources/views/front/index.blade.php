@@ -1,3 +1,36 @@
+<div class="top-header bg-dark">
+    <div class="container-fluid">
+        <div class="row px-0 px-lg-3 py-2 d-flex align-items-center">
+            <div class="col-12 col-lg-9 welcome-user-header">
+                <div class="welcome-user-messege">
+                    <p class="mb-0 d-none d-md-block">Welcome To <b class="text-warning">Pak Easy Business Survey.</b> Please check your Account Activation Status to get Started <i class="fa-solid fa-arrow-right"></i></p>
+                    <p class="d-block d-md-none text-center">Check your Account Status to Start Earn.<i class="fa-solid fa-arrow-down ms-2"></i></p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 text-center text-md-end">
+                <div class="check-status-btn">
+                    <button type="button" class="btn chk-status" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Check Status</button>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            @if (Auth::check() && Auth::user()->admin_approvel_status === 'Approved')
+                            <p><b>Your account has been <b class=" p-1 rounded-2 text-light bg-success">approved</b>. You can now start earning.</b></p>
+                            <a href="{{ route('customer') }}" class="btn btn-success start-earn-btn mt-2">Start Earning Now</a>
+                            @elseif (Auth::check() && Auth::user()->admin_approvel_status === 'Pending')
+                            <p><b>Your account approval is <b class="text-dark p-1 rounded-2 bg-warning">pending</b>. Please wait for admin approval.</b></p>
+                            @elseif (Auth::check() && Auth::user()->admin_approvel_status === 'Rejected')
+                            <p><b>Your account approval request has been <b class="text-dark p-1 rounded-2 bg-danger">rejected</b>. Please contact for more information.<a href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su">Whatsapp</a></b></p>
+                            @else
+                            <p><b>You are logged out. Please <a href="{{ route('login') }}">login</a> to continue.</b></p>
+                            @endif
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @extends('layouts.user')
 
 @section('title', 'User Page')
@@ -6,19 +39,7 @@
 
 <main>
 
-    <button type="button" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Check Status</button>
-    <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-            @if (Auth::check() && Auth::user()->admin_approvel_status === 'Approved')
-            <p><b>Your account has been <b class="text-dark p-1 rounded-2 bg-success">approved</b>. You can now start earning.</p></b>
-            <a href="{{ route('customer') }}" class="btn btn-primary">Go to Customer Page</a>
-            @elseif (Auth::check() && Auth::user()->admin_approvel_status === 'Pending')
-            <p><b>Your account approval is <b class="text-dark p-1 rounded-2 bg-warning">pending</b>. Please wait for admin approval.</b></p>
-            @elseif (Auth::check() && Auth::user()->admin_approvel_status === 'Rejected')
-            <p><b>Your account approval request has been <b class="text-dark p-1 rounded-2 bg-danger">rejected</b>. Please contact for more information.<a href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su">Whatsapp</a></b></p>
-            @endif
-        </div>
-    </div>
+
 
     <section id="banner-main">
         <div id="intro-example" class="container-fluid p-5 d-flex align-items-center   ">
@@ -31,7 +52,7 @@
                 </div>
                 <div class="col-12 col-lg-5 image-col text-center d-flex justify-content-end">
                     <div class="image d-flex justify-content-center align-items-center">
-                        <img src="assets/images/Vector.png" class="img-fluid" alt="" width="150">
+                        <img src="assets/images/user.png" class="img-fluid" alt="" width="150">
                     </div>
                 </div>
 
@@ -70,7 +91,7 @@
             <div class="row" id="row-wel">
                 <div class="col-md-5 d-flex justify-content-center justify-content-lg-end pe-lg-5">
                     <div class="d-flex align-items-center" id="op-pic">
-                        <img src="assets/images/Vector (4).png" alt="">
+                        <img src="assets/images/welcome.png" alt="">
                     </div>
                 </div>
                 <div class="col-md-7 pt-4" id="welcome">
@@ -115,8 +136,22 @@
         }, 100);
     }
 
-    // Call startCounter for each counter
-    startCounter("count1", 3690000); // Convert Rs 36.9M to 3690000
-    startCounter("count2", 1010000); // Convert 10.1M to 1010000
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Start the counter animation when "cards-main" section intersects with the viewport
+                startCounter("count1", 3690000); // Convert Rs 36.9M to 3690000
+                startCounter("count2", 1010000); // Convert 10.1M to 1010000
+                // Disconnect the observer since it's no longer needed
+                observer.disconnect();
+            }
+        });
+    }, {
+        threshold: 0.5
+    }); // Trigger when at least 50% of the section is visible
+
+    // Observe the "cards-main" section
+    observer.observe(document.getElementById("cards-main"));
 </script>
 @endsection

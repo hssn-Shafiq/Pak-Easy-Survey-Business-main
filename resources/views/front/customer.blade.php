@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-12 col-lg-5 image-col text-center d-flex justify-content-end">
                         <div class="image d-flex justify-content-center align-items-center">
-                            <img src="assets/images/Vector.png" class="img-fluid" alt="" width="150">
+                            <img src="assets/images/customer.png" class="img-fluid" alt="" width="150">
                         </div>
                     </div>
                 </div>
