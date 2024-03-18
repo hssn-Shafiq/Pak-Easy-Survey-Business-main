@@ -19,7 +19,7 @@
             @endif
         </div>
     </div>
-   
+
     <section id="banner-main">
         <div id="intro-example" class="container-fluid p-5 d-flex align-items-center   ">
             <div class="row mask d-flex justify-content-center align-items-center w-100 p-3">
