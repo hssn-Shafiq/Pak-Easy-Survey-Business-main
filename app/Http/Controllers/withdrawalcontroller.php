@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserStats;
 use App\Models\Withdrawal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,25 +35,54 @@ class withdrawalcontroller extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'bank' => ['required', 'string'],
-            'account_number' => ['required', 'string'],
-            'account_name' => ['required', 'string'],
-            'amount' => ['required', 'numeric', 'min:500'],
-        ]);
+        $user = Auth::user();
+        $totalAmountRequired = 150; // Minimum amount required for withdrawal
 
-        $withdrawal = new Withdrawal([
-            'user_id' => Auth::id(),
-            'bank' => $request->bank,
-            'account_number' => $request->account_number,
-            'account_name' => $request->account_name,
-            'amount' => $request->amount,
-            'status' => "Pending",
-        ]);
-        $withdrawal->save();
+        if (($user->earnings + $user->reviews()->count() * 10) >= $totalAmountRequired) {
+            $request->validate([
+                'bank' => ['required', 'string'],
+                'account_number' => ['required', 'string'],
+                'account_name' => ['required', 'string'],
+                'amount' => ['required', 'numeric', 'min:' . $totalAmountRequired],
+            ]);
 
-        return redirect()->route('customer')->with('success', 'Withdrawal request submitted successfully.');
+            // Check if withdrawal amount is greater than user's earnings
+            $withdrawalAmount = $request->amount;
+            if ($withdrawalAmount > $user->earnings) {
+                return redirect()->route('customer')->with('error', 'You do not have enough earnings for withdrawal. Please earn more to proceed.');
+            }
+
+            // Deduct the withdrawal amount from user's earnings
+            $user->earnings -= $withdrawalAmount;
+            $user->save();
+
+            $withdrawal = new Withdrawal([
+                'user_id' => Auth::id(),
+                'bank' => $request->bank,
+                'account_number' => $request->account_number,
+                'account_name' => $request->account_name,
+                'amount' => $withdrawalAmount,
+                'status' => "Pending",
+            ]);
+            $withdrawal->save();
+
+            // Update userStats if needed
+            $userStats = UserStats::where('user_id', $user->id)->first();
+            // Assuming UserStats has earnings field
+            $userStats->earnings = $user->earnings;
+            $userStats->save();
+
+            return redirect()->route('customer')->with('success', 'Withdrawal request submitted successfully.');
+        } else {
+            return redirect()->route('customer')->with('error', 'You do not have enough earnings for withdrawal. Please earn more to proceed.');
+        }
     }
+
+
+
+
+
+
 
     public function approve(Request $request, Withdrawal $withdrawal): RedirectResponse
     {
