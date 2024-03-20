@@ -94,7 +94,7 @@
                         <img src="assets/images/welcome.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-7 pt-4" id="welcome">
+                <div class="col-md-7 pt-4 text-center text-lg-start" id="welcome">
                     <h5>Welcome To Pak EasyBusinessSurvey</h5>
                     <h2>Simple Profitable Conveniently</h2>
                     <p>1. Point1</p>

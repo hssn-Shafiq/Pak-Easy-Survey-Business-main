@@ -43,8 +43,7 @@
         </div>
     </nav>
 
-    <main>
-
+    <main class="content">
         <div class="mt-3 p-5">
             <div class="title text-center">
                 <h1>User Stats</h1>

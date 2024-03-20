@@ -16,6 +16,24 @@
 </head>
 
 <body>
+<nav>
+        <div class=" reg-header p-3">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-12 col-lg-4 backlink ">
+                        <a href="#" onclick="history.back()" class=" text-dark d-flex align-items-center gap-3 text-decoration-none">
+                            <h5><i class="fa-solid fa-angles-left ms-3"></i></h5>
+                            <h5>Return to Page</h5>
+                        </a>
+                    </div>
+                    <div class="col-12 col-lg-4 text-center">
+                        <a href="#"><img src="/assets/images/ebslogo.png" alt="" width="170px"></a>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <main>
         <div class="container mt-5 terms-condition">
             <h1 class="mb-4">Privacy Policy</h1>

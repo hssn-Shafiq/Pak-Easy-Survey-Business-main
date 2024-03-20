@@ -106,7 +106,7 @@
                     <div class="col-md-4 bg-light" id="dollar">
                         <img src="assets/images/Vector (7).png" alt="" class="img-fluid" class="img-fluid" width="60">
                         <h3 class="text-bold py-3 ps-1">Rs. 36.9M</h3>
-                        <a href="" class="text-decoration-none text-dark">
+                        <a href="javasript:void(0)" class="text-decoration-none text-dark">
                             <p>Your Withdrawal Balance</p>
                         </a>
                     </div>
@@ -121,7 +121,13 @@
             </div>
         </section>
         <!--=======customer-dashboard-banner Ends Here=======-->
-
+    <div class="container show_messge_form my-5">
+    @if ($message = Session::get('error'))
+           <div class="row text-center p-5">
+        <p class="text-danger"><b>{{$message}}</b></p>
+           </div>
+           @endif
+    </div>
         <!--=======All Referrals Table Starts Here=======-->
         <section id="all_referrals_user">
             <div class="mt-5 p-5">
@@ -156,8 +162,10 @@
 
         <!--=======Take Withdraw form Starts Here=======-->
         <section id="Take_Withdraw_form">
+            
             <div class="container mt-5 p-5 d-flex align-items-center justify-content-center">
-                <form class="registration-form withdraw-form" id="withdrawForm">
+                <form class="registration-form withdraw-form" id="withdraw_form" action="{{ route('withdrawals.store') }}" method="POST">
+                    @csrf
                     <h3 class="text-center title">Take A Withdraw Now</h3>
                     <p class="text-center text-danger"><b>Please fill out all the fields carefully</b></p>
 
@@ -170,10 +178,10 @@
                             <path fill="none" d="M0 0h24v24H0V0z" />
                             <path d="M21 9V5H3v4H0v11h24V9h-3zM5 7h14v2H5V7zm14 10H5v-4h14v4zm0-6H5V9h14v2z" />
                         </svg>
-                        <select class="input form-select" id="bankSelect" required>
+                        <select class="input form-select" id="bank" name="bank" required>
                             <option value="">Select Bank</option>
-                            <option value="bank1">Jazzcash</option>
-                            <option value="bank2">Easypaisa</option>
+                            <option value="jazzcash">Jazzcash</option>
+                            <option value="easypaisa">Easypaisa</option>
                         </select>
                     </div>
 
@@ -186,7 +194,7 @@
                             <path fill="none" d="M0 0h24v24H0V0z" />
                             <path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0 18H6V10h12v10zm-6-2H8v-2h4v2zm0-4H8v-2h4v2zm0-4H8V8h4v2zm6 8h-2v-2h2v2zm0-4h-2V9h2v2z" />
                         </svg>
-                        <input placeholder="Enter your Bank's User Name" class="input" type="text" name="name" required autofocus autocomplete="name">
+                        <input placeholder="Enter your Bank's User Name" class="input" type="text" id="account_name" name="account_name" required autofocus autocomplete="name">
                     </div>
 
                     <!-- Email -->
@@ -198,7 +206,7 @@
                             <path fill="none" d="M0 0h24v24H0V0z" />
                             <path d="M18 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM9 10h6v2H9v-2zm0 4h6v2H9v-2z" />
                         </svg>
-                        <input placeholder="Enter your Bank Number" class="input" type="number" name="number" required autocomplete="bank_number">
+                        <input placeholder="Enter your Bank Number" class="input" type="number" id="account_number" name="account_number" required autocomplete="bank_number">
                     </div>
 
                     <!-- Password -->
@@ -210,7 +218,7 @@
                             <path fill="none" d="M0 0h24v24H0V0z" />
                             <path d="M20 5h2v14h-2V5zM2 11h2v8H2v-8zm4-4h2v12H6V7zm4 8h2v4h-2v-4zm4-8h2v12h-2V7z" />
                         </svg>
-                        <input placeholder="Enter Amount To Withdraw" class="input" type="number" name="withdraw_amount" required autocomplete="withdraw_amount">
+                        <input placeholder="Enter Amount To Withdraw" class="input" type="number" id="amount" name="amount" required autocomplete="withdraw_amount">
                     </div>
                     <span>It will take almost 2 hours to process your request. Please wait patiently😊</span>
                     <button type="submit" class="button-submit">Take Withdraw</button>
@@ -295,7 +303,7 @@
 
         // Initially hide the form off-screen
         form.style.transform = "translateX(-100%)";
-        form.style.display= "none";
+        form.style.display = "none";
 
         showFormButton.addEventListener('click', function() {
             if (form.style.display === "none") {
@@ -341,6 +349,7 @@
             withdrawModal.show();
         });
     </script>
+    
 
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

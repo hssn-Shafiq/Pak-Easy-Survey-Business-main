@@ -6,21 +6,12 @@
 
 @section('content')
     <!--=======Main Body Starts Here=======-->
-    <main>
+    <main class="content">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <h4> {{ $message }}</h4>
             </div>
         @endif
-
-        @if ($message = Session::get('error'))
-            <div class="alert alert-danger">
-                <h4> {{ $message }}</h4>
-            </div>
-        @endif
-
-        <a href="{{ route('front.withdraw') }}" class="btn btn-primary">Request Withdrawal</a>
-        <a href="{{ route('user.withdrawals') }}" class="btn btn-primary">View Withdrawal Requests</a>
         <!--=======Intro-Section Starts Here=======-->
         <section id="banner-main-customer">
             <div id="intro-example" class="container-fluid p-5 d-flex align-items-center   ">

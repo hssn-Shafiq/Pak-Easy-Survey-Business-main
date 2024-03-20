@@ -553,6 +553,9 @@ conic-gradient(from 129.43deg at 12.74% 26.95%,
 }
 
 @media (max-width: 768px) {
+    #customer-dashboard-banner .cust-banner-main{
+        height: auto;
+    }
     #intro-example {
         height: auto;
         justify-content: center;
@@ -595,6 +598,9 @@ conic-gradient(from 129.43deg at 12.74% 26.95%,
     #op-pic {
         width: 200px;
         height: 200px;
+    }
+    #footer-start .row {
+        padding: 0rem !important;
     }
 }
 

@@ -38,9 +38,6 @@
                         <a class="nav-link" href="{{ route('referral-users') }}">Affiliate</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cusdashboard') }}">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('products.index') }}">Product</a>
                     </li>
                     @guest
