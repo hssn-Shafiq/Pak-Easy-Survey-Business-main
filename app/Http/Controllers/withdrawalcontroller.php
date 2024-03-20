@@ -14,7 +14,6 @@ class withdrawalcontroller extends Controller
     //
 
 
-
     public function userindex()
     {
         $userWithdrawals = Withdrawal::where('user_id', auth()->id())->get();
@@ -30,7 +29,7 @@ class withdrawalcontroller extends Controller
 
     public function create()
     {
-        return view('front.withdraw');
+        return view('user-stats.referral-users');
     }
 
     public function store(Request $request): RedirectResponse
@@ -49,7 +48,7 @@ class withdrawalcontroller extends Controller
             // Check if withdrawal amount is greater than user's earnings
             $withdrawalAmount = $request->amount;
             if ($withdrawalAmount > $user->earnings) {
-                return redirect()->route('customer')->with('error', 'You do not have enough earnings for withdrawal. Please earn more to proceed.');
+                return redirect()->route('referral-users')->with('error', 'You do not have enough earnings for withdrawal. Please earn more to proceed.');
             }
 
             // Deduct the withdrawal amount from user's earnings
@@ -74,15 +73,9 @@ class withdrawalcontroller extends Controller
 
             return redirect()->route('customer')->with('success', 'Withdrawal request submitted successfully.');
         } else {
-            return redirect()->route('customer')->with('error', 'You do not have enough earnings for withdrawal. Please earn more to proceed.');
+            return redirect()->route('referral-users')->with('error', 'You do not have enough earnings for withdrawal. Please earn more to proceed.');
         }
     }
-
-
-
-
-
-
 
     public function approve(Request $request, Withdrawal $withdrawal): RedirectResponse
     {

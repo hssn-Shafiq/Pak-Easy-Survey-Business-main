@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid px-4 px-m-0">
             <a class="navbar-brand" href="#">
-                <img src="assets/images/ebslogo.png" alt="" width="100">
+                <img src="/assets/images/ebslogo.png" alt="" width="100">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -37,12 +37,11 @@
                         <a class="nav-link " aria-current="page" href="javascript:void(0);">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Why Us</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('user-stats.index') }}">Affiliate</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admindashboard') }}">Dashboard</a>
+                    </li>
                 </ul>
                 <div class="d-flex">
                     <a class="nav-link" href="{{ route('login') }}">Sign Out</a>
@@ -59,7 +58,7 @@
             <div class="col-md-4" id="about">
                 <div class="brand ">
                     <a class="navbar-brand" href="index.html" style="float:left;">
-                        <img src="assets/images/ebslogo.png" alt="PakEasy-BusinessSurvey-Logo" width="100">
+                        <img src="/assets/images/ebslogo.png" alt="PakEasy-BusinessSurvey-Logo" width="100">
                     </a>
                 </div>
                 <div class="description">

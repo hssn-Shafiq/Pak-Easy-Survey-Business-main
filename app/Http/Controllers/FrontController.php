@@ -42,8 +42,8 @@ class FrontController extends Controller
         return view('front.Condition');
     }
 
-    public function cusdashboard()
+    public function admindashboard()
     {
-        return view('front.cusdashboard');
+        return view('front.admindashboard');
     }
 }

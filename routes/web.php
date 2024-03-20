@@ -86,7 +86,7 @@ Route::get('/whyus', [FrontController::class, 'whyus'])->name('whyus');
 Route::get('/Disclaimer', [FrontController::class, 'Disclaimer'])->name('Disclaimer');
 Route::get('/Privacy', [FrontController::class, 'Privacy'])->name('Privacy');
 Route::get('/Condition', [FrontController::class, 'Condition'])->name('Condition');
-Route::get('/cusdashboard', [FrontController::class, 'cusdashboard'])->name('cusdashboard');
+Route::get('admin/admindashboard', [FrontController::class, 'admindashboard'])->name('admindashboard');
 
 
 
@@ -106,8 +106,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'userindex'])->name('user.withdrawals');
 
     Route::get('/withdraw', 'App\Http\Controllers\withdrawalcontroller@create')->name('front.withdraw');
-    Route::post('/withdraw', 'App\Http\Controllers\withdrawalcontroller@store')->name('withdrawals.store');
-});
+    // Route::post('/withdraw', 'App\Http\Controllers\withdrawalcontroller@store')->name('withdrawals.store');
+    Route::post ('/withdraw',[withdrawalcontroller::class, 'store'])->name('withdrawals.store');});
 
 Route::get('/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'index'])->name('admin.withdrawals.index');
 Route::get('/admin/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'index'])->name('admin.withdrawals.index');
