@@ -55,6 +55,6 @@
         <label for="amount">Withdrawal Amount:</label>
         <input type="text" class="form-control" id="amount" name="amount">
     </div>
-   
+
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
