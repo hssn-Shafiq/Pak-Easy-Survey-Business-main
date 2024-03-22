@@ -44,7 +44,7 @@
                     <div class="col-md-4" id="dollar">
                         <img src="assets/images/Vector (1).png" alt="">
                         <h3 class="text-bold py-3 ps-1">Rs.
-                            {{ $userStats->earnings + $userStats->reviews()->count() * 10 }}
+                            {{ $totalEarnings }}
                         </h3>
                         <p>Your Total Balance</p>
                     </div>

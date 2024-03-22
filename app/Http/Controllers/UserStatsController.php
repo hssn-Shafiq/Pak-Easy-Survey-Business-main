@@ -10,12 +10,43 @@ use Illuminate\Support\Facades\Auth;
 
 class UserStatsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $searchQuery = $request->input('query');
 
-        $userStats = UserStats::all();
-        return view('user-stats.index', ['userStats' => $userStats]);
+        $userStats = UserStats::query()
+            ->when($searchQuery, function ($query) use ($searchQuery) {
+                return $query->where('user_id', 'like', "%$searchQuery%")
+                    ->orWhereHas('user', function ($query) use ($searchQuery) {
+                        $query->where('name', 'like', "%$searchQuery%");
+                    })
+                    ->orWhere('earnings', 'like', "%$searchQuery%")
+                    ->orWhere('level', 'like', "%$searchQuery%")
+                    ->orWhere('total_referrals', 'like', "%$searchQuery%")
+                    ->orWhere('created_at', 'like', "%$searchQuery%");
+            })
+            ->get();
+
+        return view('user-stats.index', compact('userStats'));
     }
+
+
+    // public function search(Request $request)
+    // {
+    //     $searchQuery = $request->input('query');
+
+    //     $userStats = UserStats::query()
+    //         ->when($searchQuery, function ($query) use ($searchQuery) {
+    //             return $query->orWhere('earnings', 'like', "%$searchQuery%")
+    //             ->orWhere('created_at', 'like', "%$searchQuery%");
+    //         })
+    //         ->get();
+
+    //     return view('user-stats.index', compact('userStats'));
+    // }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -71,26 +102,29 @@ class UserStatsController extends Controller
     {
         $userStats = $user->stats;
 
+        // Update earnings for new users within 7 days
         if ($userStats && Carbon::now()->diffInDays($user->created_at) <= 7) {
-            $userStats->increment('earnings', 150);
+            $userStats->increment('earnings', 150); // User gets 150 earnings
             $referringUser = User::find($userStats->referral_by);
             if ($referringUser) {
-                $referringUser->stats()->increment('earnings', 100);
+                $referringUser->stats()->increment('earnings', 100); // Referrer gets 100 earnings
             }
         }
 
-        $reviewsEarnings = $user->reviews()->count() * 10;
-        $userStats->increment('earnings', $reviewsEarnings);
+        // Calculate earnings from reviews
+        $reviewsEarnings = $user->reviews()->count() * 10; // Each review is worth 10 earnings
+        $userStats->increment('earnings', $reviewsEarnings); // Add review earnings to total earnings
 
         // Calculate and store review earnings
         $userStats->update(['review_earnings' => $reviewsEarnings]);
 
         // Calculate and store referral earnings
-        $referralEarnings = $userStats->earnings - $reviewsEarnings;
+        $referralEarnings = $userStats->earnings - $reviewsEarnings; // Remaining earnings are from referrals
         $userStats->update(['referral_earnings' => $referralEarnings]);
 
         return redirect()->route('user-stats.index');
     }
+
 
 
 
@@ -125,7 +159,12 @@ class UserStatsController extends Controller
         $user = Auth::user();
         $userStats = UserStats::where('user_id', $user->id)->first();
 
-        return view('front.customer', ['userStats' => $userStats]);
+        $userEarnings = $user->earnings;
+        $userStatsEarnings =$userStats->earnings ;
+
+        $totalEarnings = $userEarnings + $userStatsEarnings;
+
+        return view('front.customer', compact('totalEarnings'));
     }
 
 
@@ -134,14 +173,12 @@ class UserStatsController extends Controller
         $user = Auth::user();
         $userStats = UserStats::where('user_id', $user->id)->first();
 
-        if ($userStats) {
-            $userLevel = $userStats->level;
-        } else {
-            $userLevel = null;
-        }
+        $userLevel = $userStats ? $userStats->level : null;
+        $totalEarnings = $userStats ? $userStats->earnings : null;
 
-        return view('front.customer', ['userStats' => $userStats, 'userLevel' => $userLevel]);
+        return view('front.customer', compact('totalEarnings', 'userLevel'));
     }
+
 
 
 

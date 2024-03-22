@@ -30,7 +30,9 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 
-Route::resource('user-stats', UserStatsController::class);
+Route::resource('admin/user-stats', UserStatsController::class);
+Route::get('admin/user-stat', [UserStatsController::class,'index'])->name('index');
+// Route::get('admin/user-stats', [UserStatsController::class,'search'])->name('search');
 
 
 Route::get('/products', [ProductController::class, 'index']);
@@ -107,22 +109,26 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/withdraw', 'App\Http\Controllers\withdrawalcontroller@create')->name('front.withdraw');
     // Route::post('/withdraw', 'App\Http\Controllers\withdrawalcontroller@store')->name('withdrawals.store');
-    Route::post ('/withdraw',[withdrawalcontroller::class, 'store'])->name('withdrawals.store');});
+    Route::post('/withdraw', [withdrawalcontroller::class, 'store'])->name('withdrawals.store');
+});
 
 Route::get('/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'index'])->name('admin.withdrawals.index');
 Route::get('/admin/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'index'])->name('admin.withdrawals.index');
 
 Route::post('/admin/withdrawals/{withdrawal}/approve', [App\Http\Controllers\withdrawalcontroller::class, 'approve'])->name('admin.withdrawals.approve');
 Route::post('/admin/withdrawals/{withdrawal}/reject', [App\Http\Controllers\withdrawalcontroller::class, 'reject'])->name('admin.withdrawals.reject');
-Route::get('/approved-withdrawals', 'App\Http\Controllers\withdrawalcontroller@approvedWithdrawals')->name('approved-withdrawals');
+Route::get('/admin/approved-withdrawals', 'App\Http\Controllers\withdrawalcontroller@approvedWithdrawals')->name('approved-withdrawals');
+
+Route::get('/rejected-withdrawals', 'App\Http\Controllers\withdrawalcontroller@rejectedWithdrawals')->name('rejected.withdrawals');
+
 
 
 
 // payment method select
 
-Route::get('selects', [SelectController::class, 'index']);
+Route::get('/regiter', [SelectController::class, 'index']);
 Route::get('add-select', [SelectController::class, 'create']);
-Route::post('add-select', [SelectController::class, 'store']);
-Route::get('edit-select/{id}', [SelectController::class, 'edit']);
+Route::post('add-select', [SelectController::class, 'store'])->name('add.select');
+Route::get('edit-select/{id}', [SelectController::class, 'edit'])->name('edit.select');
 Route::put('update-select/{id}', [SelectController::class, 'update']);
 Route::delete('delete-select/{id}', [SelectController::class, 'destroy']);

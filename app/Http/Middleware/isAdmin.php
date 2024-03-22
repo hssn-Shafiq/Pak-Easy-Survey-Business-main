@@ -7,20 +7,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckApproved
+class isAdmin
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    // App\Http\Middleware\CheckApproved.php
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->admin_approvel_status !== 'Approved') {
-            return redirect('/')->with('error', 'You are not authorized to access this page.');
-        }
 
-        return $next($request);
+        if (Auth::check()) {
+            if (Auth::users()->isAdmin == '1') {
+
+                return $next($request);
+            } else {
+
+                return redirect('/')->with('message', ' your are only user ok mari jaan ');
+            }
+        } else {
+            return redirect('/login')->with('message', ' Login   first to access this page');
+        }
     }
 }

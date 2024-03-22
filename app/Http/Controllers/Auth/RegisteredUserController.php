@@ -76,12 +76,7 @@ class RegisteredUserController extends Controller
                 ]);
 
 
-                // Assuming $referringUser contains the newly registered user
 
-                // Get the user stats of the referring user
-                // Assuming $referringUser contains the newly registered user
-
-                // Get the user stats of the referring user
                 $userStats = UserStats::where('referral_by', $referringUser->id)->first();
 
                 // If user stats exist
@@ -96,11 +91,7 @@ class RegisteredUserController extends Controller
                         if ($referringUserGrandParentStats) {
                             $referringUserGrandParentStats->increment('earnings', 50);
 
-                            // Give 20 rupees to any of the grandparent's referrals
-                            $grandParentReferralStats = UserStats::where('referral_by', $referringUserGrandParentStats->user_id)->first();
-                            if ($grandParentReferralStats) {
-                                $grandParentReferralStats->increment('earnings', 20);
-                            }
+                           
                         }
                     }
                 }
@@ -137,7 +128,7 @@ class RegisteredUserController extends Controller
                 } else if ($referringUser->stats->total_referrals >= 200 && $referringUser->stats->total_referrals < 249) {
                     $level = 7;
                     $currentLevel = $level;
-                } 
+                }
                 else if ($referringUser->stats->total_referrals >= 250 && $referringUser->stats->total_referrals < 299) {
                     $level = 8;
                     $currentLevel = $level;
@@ -153,8 +144,8 @@ class RegisteredUserController extends Controller
                 } else if ($referringUser->stats->total_referrals >= 600 ) {
                     $level = 12;
                     $currentLevel = $level;
-                } 
-                
+                }
+
                 // Update the level of the user in the database
                 $referringUser->stats()->update(['level' =>  $currentLevel]);
             }

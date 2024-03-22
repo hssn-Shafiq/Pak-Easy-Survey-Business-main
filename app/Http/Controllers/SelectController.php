@@ -38,8 +38,8 @@ class SelectController extends Controller
     public function update(Request $request, $id)
     {
         $select = Select::find($id);
-        $select->name = $request->input('easyPaisa_name');
-        $select->email = $request->input('easyPaisa_number');
+        $select->easyPaisa_name = $request->input('easyPaisa_name');
+        $select->easyPaisa_number = $request->input('easyPaisa_number');
 
 
         $select->update();

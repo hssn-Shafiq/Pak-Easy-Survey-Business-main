@@ -11,21 +11,20 @@ body {
     flex-direction: column;
     min-height: 100vh; /* Ensure the body fills the viewport height */
     margin: 0;
-  }
-  
-  .content {
+}
+
+.content {
     flex: 1; /* Fill remaining vertical space */
-  }
+}
 
 :root {
     --primary-color: rgba(239, 166, 25, 1);
     --text-color: rgba(239, 166, 25, 1);
 }
 
-.--primary-color{
+.--primary-color {
     background-color: rgba(239, 166, 25, 1);
-} 
-    
+}
 
 #cards-main,
 #cards-main-customer,
@@ -40,19 +39,18 @@ input[type="disabled"] {
 /* ************************************
         Top Header Starts
 ************************************* */
-.top-header{
-
-    .welcome-user-messege p{
+.top-header {
+    .welcome-user-messege p {
         font-size: 16px;
         color: var(--primary-color);
         font-weight: 500;
     }
-    .check-status-btn .chk-status{
+    .check-status-btn .chk-status {
         color: black;
         font-weight: bold;
         background-color: var(--primary-color) !important;
     }
-    .check-status-btn .chk-status:focus{
+    .check-status-btn .chk-status:focus {
         box-shadow: none;
     }
 }
@@ -68,46 +66,45 @@ input[type="disabled"] {
     background-color: #fff;
     box-shadow: 0px 0px 2px black;
     background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, .125);
+    border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
     z-index: 1;
 
-    p{
+    p {
         text-align: start;
     }
-    .start-earn-btn{
+    .start-earn-btn {
         width: 30%;
     }
 }
 
-@media  (max-width:450px) {
-    .top-header{
-        .welcome-user-messege p{
+@media (max-width: 450px) {
+    .top-header {
+        .welcome-user-messege p {
             font-size: 12px;
         }
-        .welcome-user-header{
+        .welcome-user-header {
             line-height: 0px;
         }
-        .check-status-btn .chk-status{
+        .check-status-btn .chk-status {
             font-size: 11px;
             line-height: 17px;
             padding: 5px;
         }
-
     }
-    #collapseExample .card{
+    #collapseExample .card {
         width: 85%;
 
-        .start-earn-btn{
+        .start-earn-btn {
             width: 100%;
         }
     }
 }
 @media (max-width: 760px) {
-    #collapseExample .card{
+    #collapseExample .card {
         width: 90%;
 
-        .start-earn-btn{
+        .start-earn-btn {
             width: 100%;
         }
     }
@@ -187,17 +184,21 @@ input[type="disabled"] {
 #intro-example {
     overflow: hidden;
     height: auto;
-    background: linear-gradient(180deg,
+    background: linear-gradient(
+            180deg,
             rgba(0, 0, 0, 0.2) 0%,
             rgba(0, 0, 0, 0.154167) 23.44%,
-            rgba(0, 0, 0, 0) 100%),
-        conic-gradient(from 129.43deg at 12.74% 26.95%,
+            rgba(0, 0, 0, 0) 100%
+        ),
+        conic-gradient(
+            from 129.43deg at 12.74% 26.95%,
             #efa619 0deg,
             rgba(17, 171, 207, 0.416667) 153.75deg,
             rgba(17, 171, 207, 0.416667) 168.75deg,
             rgba(17, 171, 207, 0.381944) 305.62deg,
             rgb(207 103 17 / 85%),
-            #efa619 360deg);
+            #efa619 360deg
+        );
 }
 
 #intro-example .mask .image {
@@ -242,7 +243,7 @@ input[type="disabled"] {
 
 #dollar {
     background-color: transparent;
-    width: 300px;
+    width: 350px;
     margin: 20px;
     display: grid;
     border-radius: 10px;
@@ -298,7 +299,6 @@ input[type="disabled"] {
     width: 100px;
     height: 100px;
 }
-
 
 h4 {
     font-weight: 700;
@@ -409,9 +409,9 @@ h4 {
     padding: 10px;
     text-align: center;
     background-color: #efa619;
-   padding: 10px 0; /* Adjust padding as needed */
-  text-align: center;
-  border-top: 1px solid #ddd; /* Add border for separation */ 
+    padding: 10px 0; /* Adjust padding as needed */
+    text-align: center;
+    border-top: 1px solid #ddd; /* Add border for separation */
 }
 
 .footer.copyright span,
@@ -436,16 +436,16 @@ h4 {
 .counter.color3 {
     color: red; /* Color for higher values */
 }
-.dropdown-item:focus, .dropdown-item:hover{
-background-color: white  !important;
-color: black;
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: white !important;
+    color: black;
 }
 /* ************************************
        Footer Section Starts
 ************************************* */
 
 /* 2nd page */
-
 
 /*******************************
 user stat page
@@ -476,18 +476,22 @@ user stat page
 /* ************************************
         customer-dashboard-banner Starts
 ************************************* */
-#customer-dashboard-banner .cust-banner-main{
-    background: linear-gradient(180deg,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.154167) 23.44%,
-    rgba(0, 0, 0, 0) 100%),
-conic-gradient(from 129.43deg at 12.74% 26.95%,
-    #efa619 0deg,
-    rgba(17, 171, 207, 0.416667) 153.75deg,
-    rgba(17, 171, 207, 0.416667) 168.75deg,
-    rgba(17, 171, 207, 0.381944) 305.62deg,
-    rgb(207 103 17 / 85%),
-    #efa619 360deg);
+#customer-dashboard-banner .cust-banner-main {
+    background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.154167) 23.44%,
+            rgba(0, 0, 0, 0) 100%
+        ),
+        conic-gradient(
+            from 129.43deg at 12.74% 26.95%,
+            #efa619 0deg,
+            rgba(17, 171, 207, 0.416667) 153.75deg,
+            rgba(17, 171, 207, 0.416667) 168.75deg,
+            rgba(17, 171, 207, 0.381944) 305.62deg,
+            rgb(207 103 17 / 85%),
+            #efa619 360deg
+        );
     height: 350px;
     text-align: center;
 }
@@ -498,17 +502,17 @@ conic-gradient(from 129.43deg at 12.74% 26.95%,
 }
 .withdraw-form {
     max-width: 900px;
-    filter: none !important;;
+    filter: none !important;
     width: 700px !important;
     margin: 0 auto;
 
-    span{
+    span {
         font-size: 12px;
         color: rgb(135, 135, 135);
         font-weight: bold;
     }
 }
-.withdraw-form .form-select:focus{
+.withdraw-form .form-select:focus {
     border: none;
     box-shadow: none !important;
     outline: none;
@@ -553,7 +557,7 @@ conic-gradient(from 129.43deg at 12.74% 26.95%,
 }
 
 @media (max-width: 768px) {
-    #customer-dashboard-banner .cust-banner-main{
+    #customer-dashboard-banner .cust-banner-main {
         height: auto;
     }
     #intro-example {
@@ -630,7 +634,6 @@ conic-gradient(from 129.43deg at 12.74% 26.95%,
     }
 
     #intro-example .mask .image {
-
         height: 150px;
         width: 150px;
     }
@@ -654,7 +657,7 @@ conic-gradient(from 129.43deg at 12.74% 26.95%,
     }
 
     #dollar {
-        width: 250px;
+        width: auto;
     }
 
     .pic-circle {
@@ -703,6 +706,6 @@ conic-gradient(from 129.43deg at 12.74% 26.95%,
         Tables Starts
 ************************************* */
 
-.user-stat-table tbody tr:nth-child(even){
+.user-stat-table tbody tr:nth-child(even) {
     background-color: #e8e8e8;
 }

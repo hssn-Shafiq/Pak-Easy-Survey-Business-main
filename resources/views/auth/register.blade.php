@@ -38,9 +38,9 @@
                 <div class="registration-fee text-center">
                     <p class="mb-0 main-heading">Please Pay(pkr:1000) Your Registeration Fees For Account Activation</p>
 
-                    
-                    <p class="mb-0 sub-heading">EasyPaisa Name: MOHSIN PATHAN</p>
-                    <p class="mb-0 sub-heading">EasyPaisa Number: 03412795290</p>
+
+                    <p class="mb-0 sub-heading">EasyPaisa Name: Muhammad Mohsin</p>
+                    <p class="mb-0 sub-heading">EasyPaisa Number: 03492101044</p>
                 </div>
                 @csrf
 

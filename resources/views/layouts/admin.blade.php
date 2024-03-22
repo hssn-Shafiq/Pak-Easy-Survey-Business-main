@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>PakEasyBusinesSurvey- A Merging Platform to Earn Through Surveys and Referrals</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/front.css') }}">
@@ -33,15 +33,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-5 ">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="javascript:void(0);">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user-stats.index') }}">Affiliate</a>
-                    </li>
-                    <li class="nav-item">
+                    </li> --}}
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('admindashboard') }}">Dashboard</a>
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="d-flex">
                     <a class="nav-link" href="{{ route('login') }}">Sign Out</a>
@@ -91,7 +91,7 @@
         <span>©All Right Reserved <a href="#">EasyBusinessSurvey.Com</a></span>
     </footer>
      <!--=======Footer Ends Here=======-->
-     
+
      <!-- Bootstrap JS Link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

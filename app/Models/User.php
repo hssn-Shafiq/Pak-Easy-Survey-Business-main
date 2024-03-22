@@ -33,6 +33,7 @@ class User extends Authenticatable
         'sender_number',
         'TRX_number',
         'payment_status',
+        'earnings',
         'payment_date_time',
         'admin_approvel_status',
     ];
@@ -63,6 +64,10 @@ class User extends Authenticatable
         return $this->hasOne(UserStats::class);
     }
 
+    public function userStats()
+    {
+        return $this->hasOne(UserStats::class);
+    }
 
     public function reviews()
     {
@@ -78,6 +83,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Withdrawal::class);
     }
-
-  
 }

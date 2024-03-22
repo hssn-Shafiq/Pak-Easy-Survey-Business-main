@@ -32,12 +32,23 @@ class withdrawalcontroller extends Controller
         return view('user-stats.referral-users');
     }
 
+
+
+
+
     public function store(Request $request): RedirectResponse
     {
         $user = Auth::user();
         $totalAmountRequired = 150; // Minimum amount required for withdrawal
 
-        if (($user->earnings + $user->reviews()->count() * 10) >= $totalAmountRequired) {
+        // Get the total earnings from both User and UserStats
+        $totalEarnings = $user->earnings;
+        $userStats = UserStats::where('user_id', $user->id)->first();
+        if ($userStats) {
+            $totalEarnings += $userStats->earnings;
+        }
+        // dd($totalEarnings);
+        if ($totalEarnings >= $totalAmountRequired) {
             $request->validate([
                 'bank' => ['required', 'string'],
                 'account_number' => ['required', 'string'],
@@ -45,15 +56,24 @@ class withdrawalcontroller extends Controller
                 'amount' => ['required', 'numeric', 'min:' . $totalAmountRequired],
             ]);
 
-            // Check if withdrawal amount is greater than user's earnings
+            // Check if withdrawal amount is greater than total earnings
             $withdrawalAmount = $request->amount;
-            if ($withdrawalAmount > $user->earnings) {
+            if ($withdrawalAmount > $totalEarnings) {
                 return redirect()->route('referral-users')->with('error', 'You do not have enough earnings for withdrawal. Please earn more to proceed.');
             }
 
             // Deduct the withdrawal amount from user's earnings
-            $user->earnings -= $withdrawalAmount;
+            $withdrawalAmountToDeduct = min($withdrawalAmount, $user->earnings);
+            $user->earnings -= $withdrawalAmountToDeduct;
             $user->save();
+
+            // Deduct the remaining withdrawal amount from UserStats earnings if UserStats exist
+            if ($userStats) {
+                $remainingWithdrawalAmount = $withdrawalAmount - $withdrawalAmountToDeduct;
+                $withdrawalAmountToDeductFromUserStats = min($remainingWithdrawalAmount, $userStats->earnings);
+                $userStats->earnings -= $withdrawalAmountToDeductFromUserStats;
+                $userStats->save();
+            }
 
             $withdrawal = new Withdrawal([
                 'user_id' => Auth::id(),
@@ -65,17 +85,44 @@ class withdrawalcontroller extends Controller
             ]);
             $withdrawal->save();
 
-            // Update userStats if needed
-            $userStats = UserStats::where('user_id', $user->id)->first();
-            // Assuming UserStats has earnings field
-            $userStats->earnings = $user->earnings;
-            $userStats->save();
-
-            return redirect()->route('customer')->with('success', 'Withdrawal request submitted successfully.');
+            return redirect()->route('referral-users')->with('success', 'Withdrawal request submitted successfully.');
         } else {
             return redirect()->route('referral-users')->with('error', 'You do not have enough earnings for withdrawal. Please earn more to proceed.');
         }
     }
+
+
+    public function updateWithdrawal(Request $request, Withdrawal $withdrawal)
+    {
+        $user = User::find($withdrawal->user_id);
+        $userStats = UserStats::where('user_id', $withdrawal->user_id)->first();
+
+        if ($request->status == 'rejected') {
+            // Refund the amount back to user's earnings and UserStats earnings
+            $user->earnings += $withdrawal->amount;
+            $user->save();
+
+            if ($userStats) {
+                $userStats->earnings += $withdrawal->amount;
+                $userStats->save();
+            }
+        }
+
+        // Update the withdrawal status
+        $withdrawal->status = $request->status;
+        $withdrawal->save();
+
+        return redirect()->back()->with('success', 'Withdrawal status updated successfully.');
+    }
+
+
+
+
+
+
+
+
+
 
     public function approve(Request $request, Withdrawal $withdrawal): RedirectResponse
     {
@@ -94,7 +141,7 @@ class withdrawalcontroller extends Controller
     }
 
 
-    // In your controller method
+//   approved withdaraw
     public function approvedWithdrawals()
     {
         $users = User::whereHas('withdrawals', function ($query) {
@@ -102,5 +149,15 @@ class withdrawalcontroller extends Controller
         })->get();
 
         return view('front.approved_withdrawals', ['users' => $users]);
+    }
+
+//  rejected withdral
+    public function rejectedWithdrawals()
+    {
+        $users = User::whereHas('withdrawals', function ($query) {
+            $query->where('status', 'Rejected');
+        })->get();
+
+        return view('front.rejected_withdrawals', ['users' => $users]);
     }
 }
