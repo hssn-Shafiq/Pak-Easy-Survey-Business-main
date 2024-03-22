@@ -68,7 +68,7 @@
         <section id="Explore-massege-main">
             <div class="container mt-5">
                 <div class="row d-flex  justify-content-center" id="op-pic-main">
-                    <div class="d-flex align-items-center" id="op-pic"><img src="assets/images/Vector (4).png"
+                    <div class="d-flex align-items-center" id="op-pic"><img src="assets/images/welcome.png"
                             alt="">
                     </div>
                 </div>

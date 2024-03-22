@@ -181,7 +181,7 @@ input[type="disabled"] {
 /* ************************************
         Intro Banner Starts
 ************************************* */
-#intro-example {
+#intro-example, .jumbotron {
     overflow: hidden;
     height: auto;
     background: linear-gradient(

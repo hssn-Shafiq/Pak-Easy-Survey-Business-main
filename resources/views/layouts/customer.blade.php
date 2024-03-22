@@ -29,10 +29,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-5 ">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="javascript:void(0);">Home</a>
+                        <a class="nav-link " aria-current="page" href="{{route('customer')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Why Us</a>
+                        <a class="nav-link" href="{{route('whyus')}}">Why Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('referral-users') }}">Affiliate</a>
@@ -104,7 +104,7 @@
         <div class="row align-items-center">
             <div class="col-md-4" id="about">
                 <div class="brand ">
-                    <a class="navbar-brand" href="index.html" style="float:left;">
+                    <a class="navbar-brand" href="/" style="float:left;">
                         <img src="assets/images/ebslogo.png" alt="PakEasy-BusinessSurvey-Logo" width="100">
                     </a>
                 </div>
@@ -125,7 +125,7 @@
             <div class="col-md-4 link" id="links">
                 <h3>Quick Links</h3>
                 <a href="{{ route('whyus') }}">1. Why Us</a>
-                <a href="#">2. Affiliate Program</a>
+                <a href="{{route('referral-users')}}">2. Affiliate Program</a>
                 <!-- <a href="#">3. Join Us</a> -->
                 <a href="{{ route('register') }}">3. Join Us</a>
             </div>
@@ -138,7 +138,7 @@
         </div>
     </div>
     <footer class="footer copyright">
-        <span>©All Right Reserved <a href="#">EasyBusinessSurvey.Com</a></span>
+        <span>©All Right Reserved <a href="/">Pak EasyBusinessSurvey.Com</a></span>
     </footer>
     <!--=======Footer Ends Here=======-->
 

@@ -1,3 +1,8 @@
+
+
+@extends('layouts.user')
+
+@section('title', 'User Page')
 <div class="top-header bg-dark">
     <div class="container-fluid">
         <div class="row px-0 px-lg-3 py-2 d-flex align-items-center">
@@ -30,17 +35,9 @@
         </div>
     </div>
 </div>
-
-@extends('layouts.user')
-
-@section('title', 'User Page')
-
 @section('content')
 
 <main>
-
-
-
     <section id="banner-main">
         <div id="intro-example" class="container-fluid p-5 d-flex align-items-center   ">
             <div class="row mask d-flex justify-content-center align-items-center w-100 p-3">

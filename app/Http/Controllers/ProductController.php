@@ -25,31 +25,31 @@ class ProductController extends Controller
         } else if ($referralLevel == 3) {
             $maxProductsToShow = 10;
         } else if ($referralLevel == 4) {
-            $maxProductsToShow = 15;
+            $maxProductsToShow = 13;
         }
         else if ($referralLevel == 5) {
-            $maxProductsToShow = 20;
+            $maxProductsToShow = 16;
         }
-        else if ($referralLevel == 23) {
-            $maxProductsToShow = 11;
+        else if ($referralLevel == 6) {
+            $maxProductsToShow = 19;
         }
-        else if ($referralLevel == 25) {
-            $maxProductsToShow = 11;
+        else if ($referralLevel == 7) {
+            $maxProductsToShow = 22;
         }
-        else if ($referralLevel == 27) {
-            $maxProductsToShow = 11;
+        else if ($referralLevel == 8) {
+            $maxProductsToShow = 25;
         }
-        else if ($referralLevel == 29) {
-            $maxProductsToShow = 11;
+        else if ($referralLevel == 9) {
+            $maxProductsToShow = 29;
         }
-        else if ($referralLevel == 31) {
-            $maxProductsToShow = 11;
+        else if ($referralLevel == 10) {
+            $maxProductsToShow = 33;
         }
-        else if ($referralLevel == 35) {
-            $maxProductsToShow = 11;
+        else if ($referralLevel == 11) {
+            $maxProductsToShow = 37;
         }
-        else if ($referralLevel == 40) {
-            $maxProductsToShow = 11;
+        else if ($referralLevel == 12) {
+            $maxProductsToShow = 42;
         }
 
         $products = Product::take($maxProductsToShow)->get();

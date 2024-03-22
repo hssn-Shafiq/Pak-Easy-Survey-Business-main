@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-5 ">
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="javascript:void(0);">Home</a>
+                            <a class="nav-link " aria-current="page" href="{{ route('customer') }}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Why Us</a>
@@ -246,7 +246,7 @@
     </div>
 
     <footer class="footer copyright">
-        <span>©All Right Reserved <a href="#">EasyBusinessSurvey.Com</a></span>
+        <span>©All Right Reserved <a href="/">EasyBusinessSurvey.Com</a></span>
     </footer>
 
     <script>

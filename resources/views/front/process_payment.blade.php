@@ -95,7 +95,7 @@
     <!-- Approval Status Section -->
 
     <footer class="footer copyright">
-        <span>©All Right Reserved <a href="#">EasyBusinessSurvey.Com</a></span>
+        <span>©All Right Reserved <a href="/">EasyBusinessSurvey.Com</a></span>
     </footer>
 </body>
 

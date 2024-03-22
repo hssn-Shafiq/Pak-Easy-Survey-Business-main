@@ -8,24 +8,20 @@
     <title>PakEasyBusinesSurvey- A Merging Platform to Earn Through Surveys and Referrals</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/front.css') }}">
-    <link rel="shortcut icon" href="{{ asset('/favicon2.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
     <!-- bootstrap cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- font awesome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <!--=======Navbar Starts Here=======-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid px-4 px-m-0">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="{{ asset('assets/images/ebslogo.png') }}" alt="" width="100">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -40,10 +36,7 @@
                             href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Why Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Affiliate</a>
+                        <a class="nav-link" href="{{route('whyus')}}">Why Us</a>
                     </li>
                     @guest
                         <li class="nav-item">
@@ -125,7 +118,7 @@
         </div>
     </div>
     <footer class="footer copyright">
-        <span>©All Right Reserved <a href="#">EasyBusinessSurvey.Com</a></span>
+        <span>©All Right Reserved <a href="/">EasyBusinessSurvey.Com</a></span>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
