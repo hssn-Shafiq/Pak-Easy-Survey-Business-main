@@ -20,7 +20,8 @@ class ProductReviewController extends Controller
         $review->save();
 
         $referralLevel = $user->stats->level ?? 0;
-        $user->earnings += 10 + ($referralLevel * 20);
+        // $user->earnings += 10 + ($referralLevel * 20);
+        $user->earnings += 10;
         $user->save();
 
         $maxProductsToShow = ($referralLevel >= 0 && $referralLevel <= 3) ? [3, 5, 7, 11][$referralLevel] : -1;

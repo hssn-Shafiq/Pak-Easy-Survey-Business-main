@@ -68,10 +68,7 @@ class UserStatsController extends Controller
     {
 
         $reviewEarnings = $userStats->user->reviews()->count() * 10;
-
-
         $totalEarnings = $userStats->earnings + $reviewEarnings;
-
         return view('user-stats.show', ['userStats' => $userStats, 'totalEarnings' => $totalEarnings]);
     }
 
@@ -154,20 +151,34 @@ class UserStatsController extends Controller
     }
 
 
+    // public function showEarning()
+    // {
+    //     $user = Auth::user();
+    //     $userStats = UserStats::where('user_id', $user->id)->first();
+
+    //     $userEarnings = $user->earnings;
+    //     $userStatsEarnings =$userStats->earnings ;
+
+    //     $totalEarnings = $userEarnings + $userStatsEarnings;
+
+    //     return view('front.customer', compact('totalEarnings'));
+    // }
+
     public function showEarning()
     {
         $user = Auth::user();
         $userStats = UserStats::where('user_id', $user->id)->first();
-
+    
+        // Fetch user's earnings and user stats earnings
         $userEarnings = $user->earnings;
-        $userStatsEarnings =$userStats->earnings ;
-
+        $userStatsEarnings = $userStats ? $userStats->earnings : 0; // Handle the case where user stats might not exist
+    
+        // Calculate total earnings by adding both earnings
         $totalEarnings = $userEarnings + $userStatsEarnings;
-
+    
         return view('front.customer', compact('totalEarnings'));
     }
-
-
+    
     public function showLevel()
     {
         $user = Auth::user();
