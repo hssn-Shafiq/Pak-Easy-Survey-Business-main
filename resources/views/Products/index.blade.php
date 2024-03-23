@@ -32,8 +32,8 @@
                 $timeRemaining = $review ? max(0, $review->created_at->addHours(24)->diffInSeconds(now())) : 0;
                 @endphp
 
-                <div class="col-12 col-lg-4">
-                    <div class="product-grid text-center">
+                <div class="col-12 col-lg-4 my-4">
+                    <div class="product-grid text-center my-1">
                         <div class="product-image">
                             <a href="#" class="image">
                                 <img src="{{ asset($product->image_url) }}">
@@ -98,7 +98,7 @@
     <!-- Modal -->
     @foreach ($products as $product)
     <div class="modal fade" id="exampleModal{{ $product->id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ $product->id }}" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel{{ $product->id }}">Submit Review</h5>
@@ -109,19 +109,45 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="review">Review</label>
-                            <textarea id="review" class="form-control @error('review') is-invalid @enderror" name="review" rows="4" required></textarea>
+                            <label class="pb-2"><b>Is our product costly?</b></label>
+                            <select id="cost" class="form-select"required>
+                                <option value="">Select...</option>
+                                <option value="1">Costly</option>
+                                <option value="2">Cheapest</option>
+                                <option value="3">Fair</option>
+                            </select>
+                            @error('cost')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group my-3">
+                            <label  class="pb-2"><b>How would you rate our product?</b></label>
+                            <select id="rating" class="form-select "required>
+                                <option value="">Select...</option>
+                                <option value="1">Bad</option>
+                                <option value="2">Good</option>
+                                <option value="3">Great</option>
+                            </select>
+                            @error('rating')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="review" class="pb-2"><b>Write a Review</b></label>
+                            <textarea id="review" class="form-control @error('review') is-invalid @enderror" name="review" rows="2" required>{{ old('review') }}</textarea>
                             @error('review')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-success w-100 mt-2">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+
     @endforeach
 
     <!-- JavaScript (optional, if you need Bootstrap's JavaScript features) -->
