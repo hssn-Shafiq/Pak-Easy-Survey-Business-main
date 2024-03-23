@@ -61,6 +61,7 @@ class ProductController extends Controller
                 ->where('created_at', '>=', now()->subHours(24))
                 ->exists();
         });
+        
 
         return view('products.index', ['products' => $products, 'user' => $user]);
     }
