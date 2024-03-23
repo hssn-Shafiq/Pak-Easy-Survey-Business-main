@@ -12,6 +12,7 @@ use App\Http\Controllers\withdrawalcontroller;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Models\UserStats;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -30,8 +31,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 
-Route::resource('admin/user-stats', UserStatsController::class);
-Route::get('admin/user-stat', [UserStatsController::class,'index'])->name('index');
 // Route::get('admin/user-stats', [UserStatsController::class,'search'])->name('search');
 
 
@@ -56,7 +55,7 @@ Route::get('/referral-users', [UserStatsController::class, 'referralUsers'])->na
 
 // Front end routes
 
-Route::get('admin', [FrontController::class, 'admin'])->name('admin');
+
 // Route::get('customer', [FrontController::class, 'customer'])->name('customer');
 Route::get('/', [FrontController::class, 'user'])->name('user');
 
@@ -71,7 +70,7 @@ Route::get('/customer', [UserStatsController::class, 'showLevel'])->name('custom
 
 // user show
 Route::get('/', [UserStatsController::class, 'ShowgetTotalUsers'])->name('user');
-Route::get('/admin', [UserStatsController::class, 'TotalUsers'])->name('admin');
+
 
 
 
@@ -88,21 +87,15 @@ Route::get('/whyus', [FrontController::class, 'whyus'])->name('whyus');
 Route::get('/Disclaimer', [FrontController::class, 'Disclaimer'])->name('Disclaimer');
 Route::get('/Privacy', [FrontController::class, 'Privacy'])->name('Privacy');
 Route::get('/Condition', [FrontController::class, 'Condition'])->name('Condition');
-Route::get('admin/admindashboard', [FrontController::class, 'admindashboard'])->name('admindashboard');
+// Route::get('admin/admindashboard', [FrontController::class, 'admindashboard'])->name('admindashboard');
 
 
 
 
 // routes/web.php
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::post('/admin/approve-user/{user}', 'paymentcontroller @approveUser')->name('admin.approve.user');
 });
 
-Route::get('/admin/requests', [PaymentController::class, 'viewRequests'])->name('admin.requests');
-Route::post('/admin/approve/{id}', [PaymentController::class, 'approveUser'])->name('admin.approve');
-
-Route::get('/admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.reject');
-Route::get('/admin/dashboard', [PaymentController::class, 'dashboard'])->name('process.payment');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/user/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'userindex'])->name('user.withdrawals');
@@ -112,14 +105,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/withdraw', [withdrawalcontroller::class, 'store'])->name('withdrawals.store');
 });
 
-Route::get('/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'index'])->name('admin.withdrawals.index');
-Route::get('/admin/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'index'])->name('admin.withdrawals.index');
+// Route::get('/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'index'])->name('admin.withdrawals.index');
 
-Route::post('/admin/withdrawals/{withdrawal}/approve', [App\Http\Controllers\withdrawalcontroller::class, 'approve'])->name('admin.withdrawals.approve');
-Route::post('/admin/withdrawals/{withdrawal}/reject', [App\Http\Controllers\withdrawalcontroller::class, 'reject'])->name('admin.withdrawals.reject');
-Route::get('/admin/approved-withdrawals', 'App\Http\Controllers\withdrawalcontroller@approvedWithdrawals')->name('approved-withdrawals');
 
-Route::get('/rejected-withdrawals', 'App\Http\Controllers\withdrawalcontroller@rejectedWithdrawals')->name('rejected.withdrawals');
+
+
+Route::get('/total-earnings', [UserStatsController::class, 'showTotalEarnings'])->name('total-earnings');
 
 
 
@@ -132,3 +123,27 @@ Route::post('add-select', [SelectController::class, 'store'])->name('add.select'
 Route::get('edit-select/{id}', [SelectController::class, 'edit'])->name('edit.select');
 Route::put('update-select/{id}', [SelectController::class, 'update']);
 Route::delete('delete-select/{id}', [SelectController::class, 'destroy']);
+
+
+
+
+Route::group(['middleware' => 'AdminAccess'], function () {
+    Route::get('admin', [FrontController::class, 'admin'])->name('admin');
+
+    Route::resource('admin/user-stats', UserStatsController::class);
+    Route::get('admin/user-stat', [UserStatsController::class, 'index'])->name('index');
+    Route::get('/admin', [UserStatsController::class, 'TotalUsers'])->name('admin');
+    Route::get('/admin/withdrawals', [App\Http\Controllers\withdrawalcontroller::class, 'index'])->name('admin.withdrawals.index');
+
+    Route::post('/admin/withdrawals/{withdrawal}/approve', [App\Http\Controllers\withdrawalcontroller::class, 'approve'])->name('admin.withdrawals.approve');
+    Route::post('/admin/withdrawals/{withdrawal}/reject', [App\Http\Controllers\withdrawalcontroller::class, 'reject'])->name('admin.withdrawals.reject');
+    Route::get('/admin/approved-withdrawals', 'App\Http\Controllers\withdrawalcontroller@approvedWithdrawals')->name('approved-withdrawals');
+
+    Route::get('/admin/requests', [PaymentController::class, 'viewRequests'])->name('admin.requests');
+    Route::post('/admin/approve/{id}', [PaymentController::class, 'approveUser'])->name('admin.approve');
+
+    Route::get('/admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.reject');
+    Route::get('/admin/dashboard', [PaymentController::class, 'dashboard'])->name('process.payment');
+    Route::post('/admin/approve-user/{user}', 'paymentcontroller @approveUser')->name('admin.approve.user');
+});
+Route::get('/rejected-withdrawals', 'App\Http\Controllers\withdrawalcontroller@rejectedWithdrawals')->name('rejected.withdrawals');

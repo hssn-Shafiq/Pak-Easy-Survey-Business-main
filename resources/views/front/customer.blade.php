@@ -43,10 +43,10 @@
                     {{-- @if ($userStats) --}}
                     <div class="col-md-4" id="dollar">
                         <img src="assets/images/Vector (1).png" alt="">
-                        <h3 class="text-bold py-3 ps-1">Rs.
-                            {{ $totalEarnings }}
+                        <h3 class="text-bold py-3 ps-1">
+                            Refferal : Rs {{ $totalEarnings }}
+                            Review : Rs {{ Auth::user()->earnings }}
                         </h3>
-                        <p>Your Total Balance</p>
                     </div>
                     {{-- @endif --}}
                     <div class="col-md-4" id="dollar">

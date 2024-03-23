@@ -13,7 +13,7 @@ class UserStats extends Model
 
     protected $fillable = [
         'user_id', 'own_referral_code', 'referral_by', 'total_referrals',
-        'team_size', 'earnings','level', 'referral_status',
+        'team_size', 'earnings', 'level', 'referral_status',
     ];
 
     public function user()
@@ -27,8 +27,8 @@ class UserStats extends Model
     }
 
     public function reviews()
-{
-    return $this->hasMany(Review::class, 'user_id', 'user_id');
-}
-
+    {
+        return $this->hasMany(Review::class, 'user_id', 'user_id');
+    }
+    
 }

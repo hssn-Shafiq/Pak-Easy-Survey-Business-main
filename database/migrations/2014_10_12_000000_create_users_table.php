@@ -27,7 +27,7 @@ return new class extends Migration
             $table->timestamp('payment_date_time')->nullable(); // Add payment_date_time field
             $table->string('admin_approvel_status')->default('Pending'); // Add admin_approvel_status field with default value 'Pending'
             $table->integer('isAdmin')->default(0);
-            $table->decimal('earnings', 10, 2)->default(0);
+            $table->decimal('earnings', 10, 2)->default(0.00);
             $table->rememberToken();
             $table->timestamps();
         });

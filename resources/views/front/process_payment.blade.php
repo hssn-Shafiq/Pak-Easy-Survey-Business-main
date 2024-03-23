@@ -79,7 +79,7 @@
                                             @csrf
                                             <button type="submit" class="btn btn-success">Approve</button>
                                         </form>
-                                        <form action="{{ route('admin.reject', $user->id) }}" method="POST">
+                                        <form method="POST" action="{{ route('admin.reject', ['id' => $user->id]) }}">
                                             @csrf
                                             <button type="submit" class="btn btn-danger">Reject</button>
                                         </form>

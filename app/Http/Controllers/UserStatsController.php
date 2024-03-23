@@ -154,18 +154,13 @@ class UserStatsController extends Controller
     }
 
 
-    public function showEarning()
+    public function showTotalEarnings()
     {
-        $user = Auth::user();
-        $userStats = UserStats::where('user_id', $user->id)->first();
-
-        $userEarnings = $user->earnings;
-        $userStatsEarnings =$userStats->earnings ;
-
-        $totalEarnings = $userEarnings + $userStatsEarnings;
+        $totalEarnings = Auth::user()->earnings + (Auth::user()->stats->level * 20);
 
         return view('front.customer', compact('totalEarnings'));
     }
+
 
 
     public function showLevel()
