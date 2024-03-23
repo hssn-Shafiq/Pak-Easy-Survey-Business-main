@@ -24,7 +24,7 @@ class ProductReviewController extends Controller
         $user->earnings += 10;
         $user->save();
 
-        $maxProductsToShow = ($referralLevel >= 0 && $referralLevel <= 3) ? [3, 5, 7, 11][$referralLevel] : -1;
+        $maxProductsToShow = ($referralLevel >= 0 && $referralLevel <= 3) ? [3, 5, 7, 11,13][$referralLevel] : -1;
         $products = Product::take($maxProductsToShow)->get();
 
         return redirect()->back()->with('success', 'Review submitted successfully.')->with('products', $products);

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\UserStats;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 class UserStatsController extends Controller
 {
@@ -31,19 +32,6 @@ class UserStatsController extends Controller
     }
 
 
-    // public function search(Request $request)
-    // {
-    //     $searchQuery = $request->input('query');
-
-    //     $userStats = UserStats::query()
-    //         ->when($searchQuery, function ($query) use ($searchQuery) {
-    //             return $query->orWhere('earnings', 'like', "%$searchQuery%")
-    //             ->orWhere('created_at', 'like', "%$searchQuery%");
-    //         })
-    //         ->get();
-
-    //     return view('user-stats.index', compact('userStats'));
-    // }
 
 
 
@@ -151,18 +139,7 @@ class UserStatsController extends Controller
     }
 
 
-    // public function showEarning()
-    // {
-    //     $user = Auth::user();
-    //     $userStats = UserStats::where('user_id', $user->id)->first();
 
-    //     $userEarnings = $user->earnings;
-    //     $userStatsEarnings =$userStats->earnings ;
-
-    //     $totalEarnings = $userEarnings + $userStatsEarnings;
-
-    //     return view('front.customer', compact('totalEarnings'));
-    // }
 
     public function showTotalEarnings()
     {
@@ -199,4 +176,17 @@ class UserStatsController extends Controller
         $users = User::all();
         return view('front.admin', ['totalUsers' => $totalUsers, 'users' => $users]);
     }
+
+    //  show total referral user
+
+    public function showReferralUsers()
+    {
+        $referralCode = Auth::user()->referral_code;
+
+        $referralUsers = User::where('referral_code', $referralCode)->get();
+
+        return view('user-stats.referral-users', ['referralUsers' => $referralUsers]);
+    }
+
+
 }

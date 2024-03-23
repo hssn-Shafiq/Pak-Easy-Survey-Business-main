@@ -7,10 +7,13 @@
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
     <!-- bootstrap cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- font awesome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>PakEasyBusinesSurvey- A Merging Platform to Earn Through Surveys and Referrals</title>
 </head>
@@ -21,7 +24,8 @@
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col-12 col-lg-4 backlink ">
-                        <a href="#" onclick="history.back()" class=" text-dark d-flex align-items-center gap-3 text-decoration-none">
+                        <a href="#" onclick="history.back()"
+                            class=" text-dark d-flex align-items-center gap-3 text-decoration-none">
                             <h5><i class="fa-solid fa-angles-left ms-3"></i></h5>
                             <h5>Return to Dashboard</h5>
                         </a>
@@ -44,6 +48,8 @@
                 <table class="user-stat-table">
                     <thead class=" --primary-color ">
                         <tr class="text-light">
+
+                            <th>Bank</th>
                             <th>Account Number</th>
                             <th>Account Name</th>
                             <th>Amount</th>
@@ -52,23 +58,24 @@
                     </thead>
                     <tbody>
                         @foreach ($withdrawals as $withdrawal)
-                        <tr>
-
-                            <td>{{ $withdrawal->bank }}</td>
-                            <td>{{ $withdrawal->account_number }}</td>
-                            <td>{{ $withdrawal->account_name }}</td>
-                            <td>{{ $withdrawal->amount }}</td>
-                            <td style="display: flex; text-align:center">
-                                <form action="{{ route('admin.withdrawals.approve', $withdrawal->id) }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success">Approve</button>
-                                </form>
-                                <form action="{{ route('admin.withdrawals.reject', $withdrawal->id) }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">Reject</button>
-                                </form>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>{{ $withdrawal->bank }}</td>
+                                <td>{{ $withdrawal->account_number }}</td>
+                                <td>{{ $withdrawal->account_name }}</td>
+                                <td>{{ $withdrawal->amount }}</td>
+                                <td style="display: flex; text-align:center">
+                                    <form action="{{ route('admin.withdrawals.approve', $withdrawal->id) }}"
+                                        method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">Approve</button>
+                                    </form>
+                                    <form action="{{ route('admin.withdrawals.reject', $withdrawal->id) }}"
+                                        method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Reject</button>
+                                    </form>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -81,4 +88,5 @@
         <span>©All Right Reserved <a href="/">EasyBusinessSurvey.Com</a></span>
     </footer>
 </body>
+
 </html>

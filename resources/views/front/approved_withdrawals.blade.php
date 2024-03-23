@@ -38,7 +38,7 @@
             </div>
         </div>
     </nav>
-    <a href="{{ route('rejected.withdrawals') }}" class="btn btn-primary mb-3">View Rejected Withdrawals</a>
+    {{-- <a href="{{ route('rejected.withdrawals') }}" class="btn btn-primary mb-3">View Rejected Withdrawals</a> --}}
     <main class="content">
         <div class="mt-3 p-5">
             <div class="title text-center">
@@ -49,20 +49,26 @@
                 <table class="user-stat-table">
                     <thead class=" --primary-color ">
                         <tr class="text-light">
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Bank</th>
                             <th>Account Number</th>
+                            <th>Account Name</th>
+                            <th>Amount</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
+                                <td>{{$user->id}}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->withdrawals->first()->bank }}</td>
                                 <td>{{ $user->withdrawals->first()->account_number }}</td>
+                                <td>{{ $user->withdrawals->first()->account_name }}</td>
+                                <td>{{ $user->withdrawals->first()->amount }}</td>
                                 <td><span class="status-approved">Approved</span></td>
                                 <!-- Add more columns as needed -->
                             </tr>

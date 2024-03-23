@@ -110,7 +110,7 @@
                         <img src="assets/images/Vector (5).png" alt="" class="img-fluid" class="img-fluid"
                             width="60">
                         <h3 class="text-bold pt-4  ps-1">
-                            <p>12</p>
+                            <p>{{ $allReferralUsers->count() }}</p>
                         </h3>
                         <a href="javascript:void(0);" id="openReferralUserTable"
                             class="text-decoration-none text-dark">
@@ -120,11 +120,13 @@
                     <div class="col-md-4 bg-light" id="dollar">
                         <img src="assets/images/Vector (7).png" alt="" class="img-fluid" class="img-fluid"
                             width="60">
-                        <h3 class="text-bold py-3 ps-1">Rs. 36.9M</h3>
+                        <h3 class="text-bold py-3 ps-1"></h3>
                         <a href="javasript:void(0)" class="text-decoration-none text-dark">
-                            <p>Your Withdrawal Balance</p>
+                            <p><a href="{{ route('user.withdrawals') }}">Your Over all Withdrawal </a></p>
                         </a>
                     </div>
+                    {{-- <a href="{{ route('user.withdrawals') }}" class="btn btn-primary">View User Withdrawals</a> --}}
+
                     <div class="col-md-4 bg-light" id="dollar">
                         <img src="assets/images/Vector (7).png" alt="" class="img-fluid" class="img-fluid"
                             width="60">
