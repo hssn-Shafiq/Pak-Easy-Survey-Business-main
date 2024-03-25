@@ -26,33 +26,15 @@
 
         <!-- start Dollar Section-->
         <section id="cards-main-admin">
-            <div class="container-fluid">
+
+        <div class="container-fluid">
                 <div class="row bg-transparent" id="D-container">
                     <div class="col-md-4" id="dollar">
                         <img src="assets/images/Vector (9).png" alt="" class="img-fluid" class="img-fluid"
                             width="60">
-                        <h4 class="py-3 ps-1">{{ $totalUsers }}</h4 class="py-3 ps-1">
+                        <h3 class="py-3 ps-1">{{ $totalUsers }}</h3>
                         <p><a href="{{ route('user-stats.index') }}">Total Customer</a></p>
                     </div>
-                    <div class="col-md-4" id="dollar">
-                        <img src="assets/images/Vector (10).png" alt="" class="img-fluid" class="img-fluid"
-                            width="60">
-                        <h4 class="py-3 ps-1">10 Requests</h4 class="py-3 ps-1">
-                        <p>Payment Pending Requests</p>
-
-                    </div>
-                    <div class="col-md-4" id="dollar">
-                        <img src="assets/images/Vector (11).png" alt="" class="img-fluid" class="img-fluid"
-                            width="60">
-                        <h4 class="py-3 ps-1">Rs. 36.9M</h4 class="py-3 ps-1">
-                        <p>Total Profit</p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="row bg-transparent" id="D-container">
                     <div class="col-md-4 " id="dollar" style="width: 350px !important;">
                         <img src="/assets/images/Vector (5).png" alt="" class="img-fluid" class="img-fluid"
                             width="60">
@@ -63,6 +45,15 @@
                             <p>Approved Now</p>
                         </a>
                     </div>
+                    <div class="col-md-4" id="dollar">
+                        <img src="assets/images/Vector (11).png" alt="" class="img-fluid" class="img-fluid"
+                            width="60">
+                        <h3 class="py-3 ">Rs. 36.9M</h3>
+                        <p>Total Profit</p>
+                    </div>
+
+                </div>
+                <div class="row bg-transparent" id="D-container">
                     <div class="col-md-4 " id="dollar" style="width: 350px !important;">
                         <img src="/assets/images/Vector (3).png" alt="" class="img-fluid" class="img-fluid"
                             width="60">
@@ -74,31 +65,32 @@
                     <div class="col-md-4 " id="dollar" style="width: 350px !important;">
                         <img src="/assets/images/Vector (10).png" alt="" class="img-fluid" class="img-fluid"
                             width="60">
-                        <h3 class=" py-3">Approved Withdraw: </h3>
+                        <h3 class=" py-3">Approved Withdraw </h3>
                         <a href="{{ route('approved-withdrawals') }}" class="text-decoration-none text-dark">
                             <p>Take A Look</p>
                         </a>
+                    </div>
+                    <div class="col-md-4 " id="dollar" style="width: 350px !important;">
+                        <img src="/assets/images/Vector (10).png" alt="" class="img-fluid" class="img-fluid"
+                            width="60">
+                        <h3 class=" py-3">Rejected Withdraw</h3>
+                        <a href="{{ route('rejected.withdrawals') }}" class="text-decoration-none text-dark">
+                            <p>Take A Look</p>
+                        </a>
+
                     </div>
                 </div>
                 <div class="row bg-transparent  " id="D-container">
                     <div class="col-md-4 " id="dollar" style="width: 350px !important;">
                         <img src="/assets/images/Vector (10).png" alt="" class="img-fluid" class="img-fluid"
                             width="60">
-                        <h3 class=" py-3">Change the Easypisa Name: </h3>
+                        <h3 class=" py-3">Change Account </h3>
                         <a href="{{ route('add.select') }}" class="text-decoration-none text-dark">
                             <p>Add The Number</p>
                         </a>
 
                     </div>
-                    <div class="col-md-4 " id="dollar" style="width: 350px !important;">
-                        <img src="/assets/images/Vector (10).png" alt="" class="img-fluid" class="img-fluid"
-                            width="60">
-                        <h3 class=" py-3">Rejected Withdraw: </h3>
-                        <a href="{{ route('rejected.withdrawals') }}" class="text-decoration-none text-dark">
-                            <p>Take A Look</p>
-                        </a>
-
-                    </div>
+                   
                 </div>
             </div>
         </section>

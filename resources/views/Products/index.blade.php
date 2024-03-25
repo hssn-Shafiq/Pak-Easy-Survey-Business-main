@@ -7,13 +7,42 @@
     <title>PakEasyBusinesSurvey- A Merging Platform to Earn Through Surveys and Referrals</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/stylesheet.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/front.css') }}">
 
     <!--Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
+<header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <div class="container-fluid px-4 px-m-0">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/ebslogo.png" alt="" width="100">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-5 ">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{{ route('customer') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('whyus')}}">Why Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('referral-users') }}">Affiliate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('products.index') }}">Product</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="content">
     <div class="container-fluid overflow-hidden products-section px-0">
         <div class="row text-center product-title p-5">
             <h1>ALL PRODUCTS</h1>
@@ -146,10 +175,8 @@
             </div>
         </div>
     </div>
-
-
     @endforeach
-
+    </main>
     <!-- JavaScript (optional, if you need Bootstrap's JavaScript features) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

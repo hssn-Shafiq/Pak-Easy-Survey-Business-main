@@ -81,7 +81,7 @@
                                         Link</button>
                                 </a></li>
                             <li><a class="dropdown-item" href="#">
-                                    <div>
+                                <div>
                                         {{-- <span>Referral Code: {{ Auth::user()->own_referral_code }}</span> --}}
                                         <input type="hidden" id="hiddenReferralCode" value="{{ Auth::user()->own_referral_code }}">
                                         <button class="btn btn-sm btn-outline-secondary" onclick="copyReferralCode()">Copy Code</button>

@@ -42,22 +42,25 @@
                 <div class="row" id="D-container">
                     {{-- @if ($userStats) --}}
                     <div class="col-md-4" id="dollar">
-                        <img src="assets/images/Vector (1).png" alt="">
-                        <h3 class="text-bold py-3 ps-1">
-                            Refferal : Rs {{ $totalEarnings }}
-                            Review : Rs {{ Auth::user()->earnings }}
+                        <img src="assets/images/Vector (9).png" alt="">
+                        <h3 class="text-secondary pt-3 ">
+                            Refferal's Earning
                         </h3>
+                        <h3> Rs {{ $totalEarnings }}</h3>
+                    </div>
+                    <div class="col-md-4" id="dollar">
+                        <img src="assets/images/Vector (1).png" alt="">
+                        <h3 class="text-secondary pt-3">
+                            Review's Earning
+                        </h3>
+                        <h3 class="">Rs {{ Auth::user()->earnings }}</h3>
+                       
                     </div>
                     {{-- @endif --}}
                     <div class="col-md-4" id="dollar">
                         <img src="assets/images/Vector (2).png" alt="">
-                        <h3 class="text-bold py-3 ps-1">Level</h3>
+                        <h3 class="text-secondary py-3 ">Level: <span class="text-dark ms-3">{{$userLevel}}</span></h3>
                         <p>Your level is {{ $userLevel }} out of 12</p>
-                    </div>
-                    <div class="col-md-4" id="dollar">
-                        <img src="assets/images/Vector (3).png" alt="">
-                        <h3>Rs. 36.9M</h3>
-                        <p>Your Withdraw Money</p>
                     </div>
                 </div>
             </div>
