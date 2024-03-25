@@ -26,29 +26,21 @@ class ProductController extends Controller
             $maxProductsToShow = 10;
         } else if ($referralLevel == 4) {
             $maxProductsToShow = 13;
-        }
-        else if ($referralLevel == 5) {
+        } else if ($referralLevel == 5) {
             $maxProductsToShow = 16;
-        }
-        else if ($referralLevel == 6) {
+        } else if ($referralLevel == 6) {
             $maxProductsToShow = 19;
-        }
-        else if ($referralLevel == 7) {
+        } else if ($referralLevel == 7) {
             $maxProductsToShow = 22;
-        }
-        else if ($referralLevel == 8) {
+        } else if ($referralLevel == 8) {
             $maxProductsToShow = 25;
-        }
-        else if ($referralLevel == 9) {
+        } else if ($referralLevel == 9) {
             $maxProductsToShow = 29;
-        }
-        else if ($referralLevel == 10) {
+        } else if ($referralLevel == 10) {
             $maxProductsToShow = 33;
-        }
-        else if ($referralLevel == 11) {
+        } else if ($referralLevel == 11) {
             $maxProductsToShow = 37;
-        }
-        else if ($referralLevel == 12) {
+        } else if ($referralLevel == 12) {
             $maxProductsToShow = 42;
         }
 
@@ -61,7 +53,7 @@ class ProductController extends Controller
                 ->where('created_at', '>=', now()->subHours(24))
                 ->exists();
         });
-        
+
 
         return view('products.index', ['products' => $products, 'user' => $user]);
     }

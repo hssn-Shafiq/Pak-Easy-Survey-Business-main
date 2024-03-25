@@ -69,7 +69,9 @@ Route::get('/customer', [UserStatsController::class, 'showEarning'])->name('cust
 Route::get('/customer', [UserStatsController::class, 'showLevel'])->name('customer');
 
 // user show
+
 Route::get('/', [UserStatsController::class, 'ShowgetTotalUsers'])->name('user');
+
 
 
 
@@ -112,6 +114,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/total-earnings', [UserStatsController::class, 'showTotalEarnings'])->name('total-earnings');
 
+Route::get('/showUserRefferal', [UserStatsController::class, 'showUserRefferal']);
+
 
 
 
@@ -147,3 +151,6 @@ Route::group(['middleware' => 'AdminAccess'], function () {
     Route::post('/admin/approve-user/{user}', 'paymentcontroller @approveUser')->name('admin.approve.user');
 });
 Route::get('/rejected-withdrawals', 'App\Http\Controllers\withdrawalcontroller@rejectedWithdrawals')->name('rejected.withdrawals');
+
+
+Route::get('/user-withdrawals', [withdrawalcontroller::class, 'userWithdrawals'])->name('user.withdrawals');

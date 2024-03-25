@@ -141,7 +141,7 @@ class withdrawalcontroller extends Controller
     }
 
 
-//   approved withdaraw
+    //   approved withdaraw
     public function approvedWithdrawals()
     {
         $users = User::whereHas('withdrawals', function ($query) {
@@ -151,7 +151,7 @@ class withdrawalcontroller extends Controller
         return view('front.approved_withdrawals', ['users' => $users]);
     }
 
-//  rejected withdral
+    //  rejected withdral
     public function rejectedWithdrawals()
     {
         $users = User::whereHas('withdrawals', function ($query) {
@@ -160,4 +160,18 @@ class withdrawalcontroller extends Controller
 
         return view('front.rejected_withdrawals', ['users' => $users]);
     }
+
+
+    // see the user total amount  how much take
+
+    public function userWithdrawals()
+    {
+        $user = Auth::user();
+
+        $userWithdrawals = $user->withdrawals()->orderBy('created_at', 'desc')->get();
+
+        return view('user-stats.user_withdrawals', ['userWithdrawals' => $userWithdrawals]);
+    }
+
+ 
 }

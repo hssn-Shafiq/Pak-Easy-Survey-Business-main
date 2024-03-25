@@ -97,19 +97,27 @@
                     <div class="col-md-4 bg-light" id="dollar">
                         <img src="assets/images/Vector (5).png" alt="" class="img-fluid" class="img-fluid" width="60">
                         <h3 class="text-bold pt-4  ps-1">
-                            <p>12</p>
+                            <p>{{ $allReferralUsers->count() }}</p>
                         </h3>
                         <a href="javascript:void(0);" id="openReferralUserTable" class="text-decoration-none text-dark">
                             <p>Total Referrals</p>
                         </a>
                     </div>
                     <div class="col-md-4 bg-light" id="dollar">
+<<<<<<< HEAD
                         <img src="assets/images/Vector (7).png" alt="" class="img-fluid" class="img-fluid" width="60">
                         <h3 class="text-bold py-3 ps-1">Rs. 36.9M</h3>
+=======
+                        <img src="assets/images/Vector (7).png" alt="" class="img-fluid" class="img-fluid"
+                            width="60">
+                        <h3 class="text-bold py-3 ps-1"></h3>
+>>>>>>> 9651ac2a3508c07584e12a3203aea596d502beb5
                         <a href="javasript:void(0)" class="text-decoration-none text-dark">
-                            <p>Your Withdrawal Balance</p>
+                            <p><a href="{{ route('user.withdrawals') }}">Your Over all Withdrawal </a></p>
                         </a>
                     </div>
+                    {{-- <a href="{{ route('user.withdrawals') }}" class="btn btn-primary">View User Withdrawals</a> --}}
+
                     <div class="col-md-4 bg-light" id="dollar">
                         <img src="assets/images/Vector (7).png" alt="" class="img-fluid" class="img-fluid" width="60">
                         <h5 class=" py-3 ps-1">Withdraw Status: <span class="text-secondary">No withdraw taken</span>
