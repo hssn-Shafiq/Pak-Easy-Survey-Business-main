@@ -46,8 +46,11 @@
                         <h3 class="text-bold py-3 ps-1">
                             Refferal : Rs {{ $totalEarnings }}
                             Review : Rs {{ Auth::user()->earnings }}
+                             <a href="{{ route('user.dashboard') }}">Check Bounce</a>
                         </h3>
                     </div>
+                    {{-- <a href="" class="btn btn-primary">Open User Dashboard</a> --}}
+
                     {{-- @endif --}}
                     <div class="col-md-4" id="dollar">
                         <img src="assets/images/Vector (2).png" alt="">

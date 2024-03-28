@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Review;
+use App\Models\Message;
 use App\Models\Product;
 use App\Models\UserStats;
 use App\Models\Withdrawal;
@@ -36,6 +37,7 @@ class User extends Authenticatable
         'earnings',
         'payment_date_time',
         'admin_approvel_status',
+        'gift',
     ];
 
 
@@ -83,8 +85,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Withdrawal::class);
     }
-    
 
-
-
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

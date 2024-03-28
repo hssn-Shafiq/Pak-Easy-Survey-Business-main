@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('admin_approvel_status')->default('Pending'); // Add admin_approvel_status field with default value 'Pending'
             $table->integer('isAdmin')->default(0);
             $table->decimal('earnings', 10, 2)->default(0.00);
+            $table->decimal('gift', 11, 0)->default(0.00)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
