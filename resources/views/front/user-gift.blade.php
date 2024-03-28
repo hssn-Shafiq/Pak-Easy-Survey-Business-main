@@ -59,7 +59,6 @@
                             {{ $message->content }}
                             @endforeach
                         </td>
-                           
                         </tr>
                     </tbody>
                 </table>
