@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password</title>
+    <title>Forgot Password - Pak Easy Business Survey</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/stylesheet.css') }}">
     <!-- CSS -->
@@ -45,7 +45,7 @@
                 <label for="email">Email:</label>
             </div>
             <div class="inputForm">
-                <input type="email" id="email" name="email" required>
+                <input type="email" class="input" id="email" name="email" required placeholder="Enter Your email">
             </div>
 
             <button type="submit" class="button-submit">Send Password Reset Link</button>

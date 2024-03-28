@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password</title>
+    <title>Reset Password - Pak Easy Business Survey</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/stylesheet.css') }}">
     <!-- CSS -->
@@ -36,7 +36,6 @@
         <form class="registration-form" method="POST" action="{{ route('password.reset', $token) }}">
             <h3 class="text-center title">Reset Password</h3>
             @csrf
-
             @error('token')
                 <div class="error text-danger">{{ $message }}</div>
             @enderror
@@ -49,14 +48,14 @@
                 <label for="password">New Password:</label>
             </div>
             <div class="inputForm">
-                <input type="password" id="password" name="password" required>
+                <input class="input" type="password" id="password" name="password" required>
             </div>
 
             <div class="flex-column">
                 <label for="password_confirmation">Confirm Password:</label>
             </div>
             <div class="inputForm">
-                <input type="password" id="password_confirmation" name="password_confirmation" required>
+                <input type="password" class="input" id="password_confirmation" name="password_confirmation" required>
             </div>
 
             <button type="submit" class="button-submit">Reset Password</button>

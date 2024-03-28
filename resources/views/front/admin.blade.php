@@ -66,7 +66,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 " id="dollar" style="width: 350px !important;">
-                    <img src="/assets/images/Vector (10).png" alt="" class="img-fluid" class="img-fluid" width="60">
+                    <img src="/assets/images/Vector (7).png" alt="" class="img-fluid" class="img-fluid" width="60">
                     <h3 class=" py-3">Rejected Withdraw</h3>
                     <a href="{{ route('rejected.withdrawals') }}" class="text-decoration-none text-dark">
                         <p>Take A Look</p>
@@ -74,17 +74,6 @@
 
                 </div>
             </div>
-            <!-- <div class="row bg-transparent  " id="D-container">
-                    <div class="col-md-4 " id="dollar" style="width: 350px !important;">
-                        <img src="/assets/images/Vector (10).png" alt="" class="img-fluid" class="img-fluid"
-                            width="60">
-                        <h3 class=" py-3">Change Account </h3>
-                        <a href="{{ route('add.select') }}" class="text-decoration-none text-dark">
-                            <p>Add The Number</p>
-                        </a>
-
-                    </div>
-                </div> -->
         </div>
     </section>
 </main>
