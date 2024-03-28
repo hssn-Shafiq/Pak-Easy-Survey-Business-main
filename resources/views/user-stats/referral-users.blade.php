@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <title>Total User | Pak Easy Business Survey</title>
     <link rel="stylesheet" href="{{ asset('assets/css/front.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/stylesheet.css') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
-    <title>Total User</title>
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    </head>
 
 <body>
     <header>
@@ -106,16 +107,16 @@
                     <div class="col-md-4 bg-light" id="dollar">
                         <img src="assets/images/Vector (7).png" alt="" class="img-fluid" class="img-fluid"
                             width="60">
-                        <h3 class="text-bold py-3 ps-1"></h3>
+                        <h3 class="text-bold py-3">Check Level Bonus</h3>
                         <a href="javasript:void(0)" class="text-decoration-none text-dark">
-                            <p><a href="{{ route('user.withdrawals') }}">Your Over all Withdrawal </a></p>
+                            <p><a href="{{ route('user.dashboard') }}">Check Bonus</a></p>
                         </a>
                     </div>
                     {{-- <a href="{{ route('user.withdrawals') }}" class="btn btn-primary">View User Withdrawals</a> --}}
 
                     <div class="col-md-4 bg-light" id="dollar">
                         <img src="assets/images/Vector (7).png" alt="" class="img-fluid" class="img-fluid" width="60">
-                        <h5 class=" py-3 ps-1">Withdraw Status: <span class="text-secondary">No withdraw taken</span>
+                        <h5 class=" py-3">Withdraw Status: <span class="text-secondary"><b><a class="text-success text-decoration-none" href="{{ route('user.withdrawals') }}">Check Now </a></b></span>
                         </h5>
                         <a href="javascript:void(0)" id="take_withdraw_form" class="text-decoration-none text-dark">
                             <p>Take A Withdraw</p>
