@@ -147,7 +147,9 @@ Route::group(['middleware' => 'AdminAccess'], function () {
     Route::get('/admin/requests', [PaymentController::class, 'viewRequests'])->name('admin.requests');
     Route::post('/admin/approve/{id}', [PaymentController::class, 'approveUser'])->name('admin.approve');
 
-    Route::get('/admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.reject');
+    // Route::get('/admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.reject');
+    Route::post('admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.withdrawals.reject');
+
     Route::get('/admin/dashboard', [PaymentController::class, 'dashboard'])->name('process.payment');
     Route::post('/admin/approve-user/{user}', 'paymentcontroller @approveUser')->name('admin.approve.user');
 
@@ -176,4 +178,5 @@ Route::get('password/reset/{token}', [ResetPasswordController::class, 'showReset
 Route::get('user/dashboard', [PaymentController::class, 'Userdashboard'])->name('user.dashboard');
 // check the earning by admin
 Route::get('admin/gifted-users', [PaymentController::class, 'giftedUsers'])->name('admin.giftedUsers');
+
 

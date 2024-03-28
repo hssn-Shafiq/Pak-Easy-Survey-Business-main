@@ -99,9 +99,9 @@
                         <li class="my-2"><b>Earn Through Referrals</b></li>
                         <li class="my-2"><b>Daily Earning & Daily Withdraw</b></li>
                     </ul>
-                    
-                    
-                    
+
+
+
                 </div>
             </div>
         </div>
