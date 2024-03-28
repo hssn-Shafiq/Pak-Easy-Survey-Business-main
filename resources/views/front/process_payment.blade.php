@@ -68,9 +68,9 @@
                                     @if ($user->admin_approvel_status === 'Pending')
                                         <b><span class="pending">Pending</span></b>
                                     @elseif ($user->admin_approvel_status === 'Approved')
-                                        <b><span class="approved text-success">Approved</span></b>
-                                        {{-- @elseif ($user->admin_approvel_status === 'Rejected')
-                        <span class="rejected">Rejected</span> --}}
+                                        <b ><span class="approved text-success">Approved</span></b>
+                                    @elseif ($user->admin_approvel_status === 'Rejected')
+                                        <b class="text-danger"><span class="rejected">Rejected</span></b>
                                     @endif
                                 </td>
                                 <td class="d-flex gap-2">
@@ -79,7 +79,9 @@
                                             @csrf
                                             <button type="submit" class="btn btn-success">Approve</button>
                                         </form>
-                                        <form method="POST" action="{{ route('admin.reject', ['id' => $user->id]) }}">
+
+                                        <form action="{{ route('admin.withdrawals.reject', ['id' => $user->id]) }}"
+                                            method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-danger">Reject</button>
                                         </form>

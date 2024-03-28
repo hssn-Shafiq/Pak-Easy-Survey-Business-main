@@ -39,6 +39,8 @@ class PaymentController extends Controller
         return view('front.process_payment', compact('users'));
     }
 
+
+    //  for admin
     public function reject(Request $request, $id)
     {
         // Logic to reject the user with the given ID
@@ -48,6 +50,7 @@ class PaymentController extends Controller
 
         return redirect()->back()->with('success', 'User rejected successfully');
     }
+    // for  user
 
 
     public function showSendEarningForm()
@@ -104,6 +107,4 @@ class PaymentController extends Controller
         $giftedUsers = User::where('gift', '>', 0)->get();
         return view('front.show_earnings', ['giftedUsers' => $giftedUsers]);
     }
-
 }
-

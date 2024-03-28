@@ -11,10 +11,13 @@
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
     <!-- bootstrap cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- font awesome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -37,12 +40,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user-stats.index') }}">Affiliate</a>
                     </li> --}}
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">Welcome Admin...😍</a>
-                    </li> 
+                    </li>
                 </ul>
                 <div class="d-flex">
-                    <a class="nav-link" href="{{ route('login') }}">Sign Out</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); this.closest('form').submit();">
+                            Sign Out
+                        </a>
+                    </form>
                 </div>
             </div>
         </div>
@@ -50,7 +59,7 @@
     <!--=======Navbar Ends Here=======-->
     @yield('content')
 
-     <!--=======Footer Starts Here=======-->
+    <!--=======Footer Starts Here=======-->
     <div class="container-fluid" id="footer-start">
         <div class="row align-items-center">
             <div class="col-md-4" id="about">
@@ -61,11 +70,12 @@
                 </div>
                 <div class="description">
                     <p>
-                    Pak Easy Business Survey offers users a simple way to earn money through product surveys and
+                        Pak Easy Business Survey offers users a simple way to earn money through product surveys and
                         referrals. Join now to start earning effortlessly!</p>
                 </div>
                 <div class="icon d-flex align-items-center gap-2">
-                <a href="https://www.facebook.com/profile.php?id=61552257843543&mibextid=nb1MFm3jZYALyyMy"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61552257843543&mibextid=nb1MFm3jZYALyyMy"><i
+                            class="fa-brands fa-facebook"></i></a>
                     <a href="#" title="Not on Instagram Yet...😊"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" title="Not on Youtube Yet...😊"><i class="fa-brands fa-youtube"></i></a>
                     <a href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su"><i class="fa-brands fa-whatsapp"></i></a>
@@ -73,24 +83,24 @@
             </div>
             <div class="col-md-4 link" id="links">
                 <h3>Quick Links</h3>
-                <a href="{{route('whyus')}}">1. Why Us</a>
+                <a href="{{ route('whyus') }}">1. Why Us</a>
                 <a href="{{ route('user-stats.index') }}">2. Affiliate</a>
                 <a href="#">3. Join Us</a>
             </div>
             <div class="col-md-4" id="links">
                 <h3>Pages</h3>
-                <a href="{{route('Disclaimer')}}">1. Disclaimer</a>
-                <a href="{{route('Privacy')}}">2. Privacy And Policy</a>
-                <a href="{{route('Condition')}}">3. Terms & Conditions</a>
+                <a href="{{ route('Disclaimer') }}">1. Disclaimer</a>
+                <a href="{{ route('Privacy') }}">2. Privacy And Policy</a>
+                <a href="{{ route('Condition') }}">3. Terms & Conditions</a>
             </div>
         </div>
     </div>
     <footer class="footer copyright">
         <span>©All Right Reserved <a href="/">EasyBusinessSurvey.Com</a></span>
     </footer>
-     <!--=======Footer Ends Here=======-->
+    <!--=======Footer Ends Here=======-->
 
-     <!-- Bootstrap JS Link -->
+    <!-- Bootstrap JS Link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

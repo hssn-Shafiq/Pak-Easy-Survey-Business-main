@@ -42,6 +42,10 @@
                 <div class="row" id="D-container">
                     {{-- @if ($userStats) --}}
                     <div class="col-md-4" id="dollar">
+                        <img src="assets/images/Vector (9).png" alt="">
+                        <h3 class="text-secondary pt-3 ">
+                            Refferal's Earning
+=======
                     <img src="assets/images/Vector (1).png" alt="">
                     <h3 class="text-secondary pt-3">
                             Referral's Earning
