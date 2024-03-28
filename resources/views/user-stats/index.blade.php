@@ -8,10 +8,13 @@
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
     <!-- bootstrap cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- font awesome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>All Registered Users- Pak Easy Business Survey</title>
 </head>
@@ -25,7 +28,8 @@
 
                         <div class="d-flex align-items-center gap-2">
                             <h5><i class="fa-solid fa-angles-left ms-3"></i></h5>
-                            <a class=" text-dark d-flex align-items-center gap-3 text-decoration-none" href="{{ route('admin') }}">
+                            <a class=" text-dark d-flex align-items-center gap-3 text-decoration-none"
+                                href="{{ route('admin') }}">
                                 <h5>Return to Dashboard</h5>
                             </a>
                         </div>
@@ -80,25 +84,32 @@
                                 Total Referrals</th>
                             <th>
                                 Registration Date </th>
+
+                            <th>Send Gift </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($userStats as $userStat)
-                        <tr>
-                            <td>{{ $userStat->user_id }}</td>
-                            <td>{{ $userStat->user->name }}</td>
-                            <td>{{ $userStat->earnings }}</td>
-                            <td>
-                                {{ $userStat->reviews()->count() * 10 }}
-                            </td>
-                            <td>
-                                {{ $userStat->earnings + $userStat->reviews()->count() * 10 }}
-                            </td>
-                            <td>{{ $userStat->level }}</td>
-                            <td>{{ $userStat->total_referrals }}
-                            <td>{{ $userStat->created_at->format('Y-m-d') }}</td>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>{{ $userStat->user_id }}</td>
+                                <td>{{ $userStat->user->name }}</td>
+                                <td>{{ $userStat->earnings }}</td>
+                                <td>
+                                    {{ $userStat->reviews()->count() * 10 }}
+                                </td>
+                                <td>
+                                    {{ $userStat->earnings + $userStat->reviews()->count() * 10 }}
+                                </td>
+                                <td>{{ $userStat->level }}</td>
+                                <td>{{ $userStat->total_referrals }}
+                                <td>{{ $userStat->created_at->format('Y-m-d') }}</td>
+                                </td>
+                                <td><a href="{{ route('admin.send-earning') }}" class="btn btn-primary">Send
+                                        Gift</a>
+                                </td>
+                                <td><a href="{{ route('admin.giftedUsers') }}" class="btn btn-primary">Check amount</a>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -109,7 +120,8 @@
     <footer class="footer copyright">
         <span>©All Right Reserved <a href="/">EasyBusinessSurvey.Com</a></span>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 </body>
 

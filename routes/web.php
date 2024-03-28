@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\UserStats;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ReviewController;
@@ -11,8 +12,8 @@ use App\Http\Controllers\UserStatsController;
 use App\Http\Controllers\withdrawalcontroller;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\ProductReviewController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Models\UserStats;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -149,8 +150,30 @@ Route::group(['middleware' => 'AdminAccess'], function () {
     Route::get('/admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.reject');
     Route::get('/admin/dashboard', [PaymentController::class, 'dashboard'])->name('process.payment');
     Route::post('/admin/approve-user/{user}', 'paymentcontroller @approveUser')->name('admin.approve.user');
+
+    // Gift
+    Route::get('admin/send-earning', [PaymentController::class, 'showSendEarningForm'])->name('admin.send-earning');
+    Route::post('admin/send-earning', [PaymentController::class, 'sendEarning'])->name('admin.send-earning.submit');
+    Route::get('admin/get-user/{user}', [PaymentController::class, 'getUser'])->name('admin.get-user');
 });
 Route::get('/rejected-withdrawals', 'App\Http\Controllers\withdrawalcontroller@rejectedWithdrawals')->name('rejected.withdrawals');
 
 
 Route::get('/user-withdrawals', [withdrawalcontroller::class, 'userWithdrawals'])->name('user.withdrawals');
+
+
+
+//
+Route::get('password/reset', [ResetPasswordController::class, 'showResetRequestForm'])->name('password.request');
+Route::post('password/reset', [ResetPasswordController::class, 'sendResetLink'])->name('password.send');
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset/{token}', [ResetPasswordController::class, 'resetPassword']);
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+
+
+//  user can the see the massage
+
+Route::get('user/dashboard', [PaymentController::class, 'Userdashboard'])->name('user.dashboard');
+// check the earning by admin
+Route::get('admin/gifted-users', [PaymentController::class, 'giftedUsers'])->name('admin.giftedUsers');
+

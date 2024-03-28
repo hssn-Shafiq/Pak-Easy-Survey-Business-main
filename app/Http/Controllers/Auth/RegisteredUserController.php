@@ -59,7 +59,7 @@ class RegisteredUserController extends Controller
             'admin_approvel_status' => 'Pending',
         ]);
 
-
+ 
 
         $userStats = UserStats::create([
             'user_id' => $user->id,
@@ -91,7 +91,7 @@ class RegisteredUserController extends Controller
                         if ($referringUserGrandParentStats) {
                             $referringUserGrandParentStats->increment('earnings', 50);
 
-                           
+
                         }
                     }
                 }

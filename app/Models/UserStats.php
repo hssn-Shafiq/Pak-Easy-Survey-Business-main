@@ -30,5 +30,7 @@ class UserStats extends Model
     {
         return $this->hasMany(Review::class, 'user_id', 'user_id');
     }
+
+
     
 }
