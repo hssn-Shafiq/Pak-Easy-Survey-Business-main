@@ -80,7 +80,7 @@
 
                     </div>
                 </div>
-                <div class="row bg-transparent  " id="D-container">
+                <!-- <div class="row bg-transparent  " id="D-container">
                     <div class="col-md-4 " id="dollar" style="width: 350px !important;">
                         <img src="/assets/images/Vector (10).png" alt="" class="img-fluid" class="img-fluid"
                             width="60">
@@ -90,8 +90,7 @@
                         </a>
 
                     </div>
-                   
-                </div>
+                </div> -->
             </div>
         </section>
     </main>

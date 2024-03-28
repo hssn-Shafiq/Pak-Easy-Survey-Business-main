@@ -94,12 +94,15 @@
                 <div class="col-md-7 pt-4 text-center text-lg-start" id="welcome">
                     <h5>Welcome To Pak EasyBusinessSurvey</h5>
                     <h2>Simple Profitable Conveniently</h2>
-                    <p>1. Point1</p>
-                    <p>2. Point2</p>
-                    <p>3. Point2</p>
-
+                    <ul>
+                        <li class="my-2"><b>Earn Through Surveys</b></li>
+                        <li class="my-2"><b>Earn Through Referrals</b></li>
+                        <li class="my-2"><b>Daily Earning & Daily Withdraw</b></li>
+                    </ul>
+                    
+                    
+                    
                 </div>
-
             </div>
         </div>
     </section>

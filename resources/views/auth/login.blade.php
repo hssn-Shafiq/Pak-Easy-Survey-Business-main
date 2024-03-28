@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login to - PakEasyBusinesSurvey- A Merging Platform to Earn Through Surveys and Referrals</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/stylesheet.css') }}">
     <!-- CSS -->
