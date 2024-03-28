@@ -1,91 +1,78 @@
-<style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-        margin-bottom: 1rem;
-        background-color: transparent;
-        color: #212529;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    th,
-    td {
-        padding: 0.75rem;
-        vertical-align: top;
-        border-top: 1px solid #dee2e6;
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/front.css') }}">
+    <title>User Withdrawals | Pak Easy Business Survey</title>
 
-    th {
-        vertical-align: bottom;
-        border-bottom: 2px solid #dee2e6;
-        background-color: #f8f9fa;
-    }
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    tbody tr:nth-of-type(odd) {
-        background-color: rgba(0, 0, 0, 0.05);
-    }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-    tbody tr:hover {
-        background-color: rgba(0, 0, 0, 0.075);
-    }
-
-    .card {
-        margin-bottom: 1rem;
-        background-color: #fff;
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        border-radius: 0.25rem;
-    }
-
-    .card-header {
-        padding: 0.75rem 1.25rem;
-        margin-bottom: 0;
-        background-color: rgba(0, 0, 0, 0.03);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-    }
-
-    .card-body {
-        padding: 1.5rem;
-    }
-
-    .table-responsive {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-    }
-</style>
-
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Your Withdrawals</div>
-
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($userWithdrawals as $withdrawal)
-                                    <tr>
-                                        <td>{{ $withdrawal->created_at }}</td>
-                                        <td>{{ $withdrawal->amount }}</td>
-                                        <td>{{ $withdrawal->status }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+<body>
+    <header>
+        <nav>
+            <div class=" reg-header p-3">
+                <div class="container">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-12 col-lg-4 backlink ">
+                            <a href="#" onclick="history.back()" class=" text-dark d-flex align-items-center gap-3 text-decoration-none">
+                                <h5><i class="fa-solid fa-angles-left ms-3"></i></h5>
+                                <h5>Return to Page</h5>
+                            </a>
+                        </div>
+                        <div class="col-12 col-lg-4 text-center">
+                            <a href="#"><img src="/assets/images/ebslogo.png" alt="" width="170px"></a>
+                        </div>
+                        <div class="col-4"></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </nav>
+    </header>
+
+    <main class="content">
+        <!--=======All Referrals Table Starts Here=======-->
+        <section id="all_referrals_user">
+            <div class="mt-5 p-5">
+                <div class="title text-center">
+                    <h1>Your Withdrawals</h1>
+                </div>
+                <div style="overflow-x: auto;" class="mt-4">
+                    <table class="user-stat-table">
+                        <thead class=" --primary-color ">
+                            <tr>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($userWithdrawals as $withdrawal)
+                            <tr>
+                                <td>{{ $withdrawal->created_at }}</td>
+                                <td>{{ $withdrawal->amount }}</td>
+                                <td>{{ $withdrawal->status }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <!--=======All Referrals Table Ends Here=======-->
+    </main>
+
+    <footer class="footer copyright">
+        <span>©All Right Reserved <a href="/">EasyBusinessSurvey.Com</a></span>
+    </footer>
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
