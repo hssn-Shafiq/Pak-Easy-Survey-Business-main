@@ -38,7 +38,7 @@
             <form class="registration-form" method="POST" action="{{ route('register') }}">
                 <h3 class="text-center title">WELCOME TO PAK EBS</h3>
                 <div class="registration-fee text-center">
-                    <p class="mb-0 main-heading">Please Pay(pkr:1000) Your Registeration Fees For Account Activation</p>
+                    <p class="mb-0 main-heading">Please Pay(pkr:1100) Your Registeration Fees For Account Activation</p>
 
 
                     <p class="mb-0 sub-heading">EasyPaisa Name: Muhammad Mohsin</p>

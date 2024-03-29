@@ -67,6 +67,8 @@
                         </h3>
                         <a href="{{ route('admin.giftedUsers') }}" class="text-decoration-none text-dark">
                             <p>Check Now</p>
+                        </a>
+                         
                     </div>
                 </div>
             </div>
@@ -124,10 +126,10 @@
                             <td>{{ $userStat->user->name }}</td>
                             <td>{{ $userStat->earnings }}</td>
                             <td>
-                                {{ $userStat->reviews()->count() * 10 }}
+                                {{ $userStat->user->earnings }}
                             </td>
                             <td>
-                                {{ $userStat->earnings + $userStat->reviews()->count() * 10 }}
+                                {{$userStat->earnings + $userStat->user->earnings }} 
                             </td>
                             <td>{{ $userStat->level }}</td>
                             <td>{{ $userStat->total_referrals }}

@@ -45,7 +45,30 @@
                 </div>
                 <div class="col-md-4" id="dollar">
                     <img src="assets/images/Vector (11).png" alt="" class="img-fluid" class="img-fluid" width="60">
-                    <h3 class="py-3 ">Rs. 36.9M</h3>
+                    <h3 class="py-3">
+                        <?php
+
+                        function formatEarnings($amount)
+                        {
+                            if ($amount < 1000) {
+                                return $amount;
+                            } elseif ($amount < 1000000) {
+                                return number_format($amount / 1000, 1) . 'k';
+                            } else {
+                                return number_format($amount / 1000000, 1) . 'M';
+                            }
+                        }
+
+                        // Assuming $earning contains the total earnings
+                        $totalEarnings = \App\Models\User::where('admin_approvel_status', 'approved')->count() * 1100;
+
+                        $formattedEarnings = formatEarnings($totalEarnings);
+
+                        echo $formattedEarnings;
+                        ?>
+
+                    </h3>
+
                     <p>Total Profit</p>
                 </div>
 

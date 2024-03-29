@@ -104,7 +104,7 @@ class PaymentController extends Controller
 
     public function giftedUsers()
     {
-        $giftedUsers = User::where('gift', '>', 0)->get();
+        $giftedUsers = User::where('earnings', '>', 0)->get();
         return view('front.show_earnings', ['giftedUsers' => $giftedUsers]);
     }
 }

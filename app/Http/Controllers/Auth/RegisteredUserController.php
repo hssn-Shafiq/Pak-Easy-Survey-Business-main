@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'referral_code' => ['nullable', 'exists:' . User::class . ',own_referral_code'],
+            'referral_code' => ['required', 'exists:' . User::class . ',own_referral_code'],
             'bank_username' => ['required', 'string'],
             'sender_number' => ['required', 'numeric'],
             'TRX_number' => ['required', 'string'],

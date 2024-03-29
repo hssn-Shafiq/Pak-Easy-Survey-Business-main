@@ -15,7 +15,7 @@ class AdminAccess
      */
     public function handle($request, Closure $next)
     {
-        $allowedEmails  = 'hs1@gmail.com';
+        $allowedEmails  = 'mohsinbaba660@gmail.com';
 
         if ($request->user()->email !== $allowedEmails) {
             abort(403, 'Unauthorized access.');

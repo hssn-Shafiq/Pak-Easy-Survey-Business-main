@@ -24,7 +24,7 @@
                     <div class="col-12 col-lg-4 backlink ">
                         <div class="d-flex align-items-center gap-2">
                             <h5><i class="fa-solid fa-angles-left ms-3"></i></h5>
-                            <a class=" text-dark d-flex align-items-center gap-3 text-decoration-none" href="{{ route('admin') }}">
+                            <a class=" text-dark d-flex align-items-center gap-3 text-decoration-none" href="{{ route('customer') }}">
                                 <h5>Return to Dashboard</h5>
                             </a>
                         </div>
