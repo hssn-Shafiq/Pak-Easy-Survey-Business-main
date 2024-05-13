@@ -15,7 +15,7 @@
     <h1>Users Who Have Given Gifts:</h1>
     <ul>
         @foreach ($giftedUsers as $user)
-            <li>{{ $user->name }} - Gift Amount: Rs{{ $user->gift }}</li>
+            <li>{{ $user->name }} - Gift Amount: Rs{{ $user->earnings }}</li>
         @endforeach
     </ul>
 

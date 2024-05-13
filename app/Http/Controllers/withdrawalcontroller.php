@@ -8,6 +8,7 @@ use App\Models\Withdrawal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 
 class withdrawalcontroller extends Controller
 {
@@ -173,5 +174,7 @@ class withdrawalcontroller extends Controller
         return view('user-stats.user_withdrawals', ['userWithdrawals' => $userWithdrawals]);
     }
 
- 
+
+
+
 }

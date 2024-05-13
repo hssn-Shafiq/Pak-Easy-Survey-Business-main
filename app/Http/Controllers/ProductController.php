@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+
     public function index()
     {
         $user = Auth::user();
@@ -55,8 +56,10 @@ class ProductController extends Controller
         });
 
 
-        return view('products.index', ['products' => $products, 'user' => $user]);
+        return view('Products.index', ['products' => $products, 'user' => $user]);
     }
+
+
 
 
 

@@ -35,7 +35,7 @@ require __DIR__ . '/auth.php';
 // Route::get('admin/user-stats', [UserStatsController::class,'search'])->name('search');
 
 
-Route::get('/products', [ProductController::class, 'index']);
+
 
 
 
@@ -148,7 +148,7 @@ Route::group(['middleware' => 'AdminAccess'], function () {
     Route::post('/admin/approve/{id}', [PaymentController::class, 'approveUser'])->name('admin.approve');
 
     // Route::get('/admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.reject');
-    Route::post('admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.withdrawals.reject');
+    Route::post('admin/reject/{id}', [PaymentController::class, 'reject'])->name('admin.withdrawals.rejects');
 
     Route::get('/admin/dashboard', [PaymentController::class, 'dashboard'])->name('process.payment');
     Route::post('/admin/approve-user/{user}', 'paymentcontroller @approveUser')->name('admin.approve.user');
@@ -180,3 +180,21 @@ Route::get('user/dashboard', [PaymentController::class, 'Userdashboard'])->name(
 Route::get('admin/gifted-users', [PaymentController::class, 'giftedUsers'])->name('admin.giftedUsers');
 
 
+
+
+Route::get('/register', [RegisteredUserController::class, 'showRegistrationForm'])->name('register');
+
+Route::get('register-first', 'Auth\RegisterController@showRegistrationForm')->name('register.first');
+
+Route::get('/withdrawals', 'WithdrawalController@showWithdrawals')->name('withdrawals');
+
+
+
+Route::middleware(['auth', 'AccessProductPromotion'])->group(function () {
+    // Routes that require referral access check
+    Route::get('/products', [ProductController::class,'index'])->name('products.index');
+});
+
+
+
+Route::delete('/admin/delete/{id}', [PaymentController::class,'deleteUser'])->name('admin.delete');

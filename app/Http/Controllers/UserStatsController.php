@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\UserStats;
+use App\Models\Withdrawal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
@@ -157,8 +158,11 @@ class UserStatsController extends Controller
         $userLevel = $userStats ? $userStats->level : null;
         $totalEarnings = $userStats ? $userStats->earnings : null;
 
-        return view('front.customer', compact('totalEarnings', 'userLevel'));
+        $totalWithdrawalAmount = Withdrawal::where('user_id', $user->id)->sum('amount');
+
+        return view('front.customer', compact('totalEarnings', 'userLevel', 'totalWithdrawalAmount'));
     }
+
 
 
 
@@ -187,6 +191,4 @@ class UserStatsController extends Controller
 
         return view('user-stats.referral-users', ['referralUsers' => $referralUsers]);
     }
-
-
 }

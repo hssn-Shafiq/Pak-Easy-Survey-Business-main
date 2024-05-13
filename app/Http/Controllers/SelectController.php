@@ -29,6 +29,8 @@ class SelectController extends Controller
         return redirect()->back()->with('status', 'select  Added Successfully');
     }
 
+
+
     public function edit($id)
     {
         $select = Select::find($id);

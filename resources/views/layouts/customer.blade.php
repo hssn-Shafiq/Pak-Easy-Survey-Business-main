@@ -10,10 +10,13 @@
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
     <!-- bootstrap cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- font awesome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -23,16 +26,18 @@
             <a class="navbar-brand" href="#">
                 <img src="assets/images/ebslogo.png" alt="" width="100">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-5 ">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{route('customer')}}">Home</a>
+                        <a class="nav-link " aria-current="page" href="{{ route('customer') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('whyus')}}">Why Us</a>
+                        <a class="nav-link" href="{{ route('whyus') }}">Why Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('referral-users') }}">Affiliate</a>
@@ -41,17 +46,18 @@
                         <a class="nav-link" href="{{ route('products.index') }}">Product</a>
                     </li>
                     @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign In</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign In</a>
+                        </li>
                     @else
-                    <li class="nav-item dropdown profile-dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ Auth::user()->name }}
-                        </a>
+                        <li class="nav-item dropdown profile-dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
@@ -69,29 +75,35 @@
 
                 </ul>
 
-                <div class="d-flex">
-                    <li class="nav-item dropdown ">
-                        <a id="navbarDropdown" class="nav-link p-0 p-lg-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Refer a Friend
-                        </a>
-                        <ul class="dropdown-menu refered-dropdown" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">
-                                    <input readonly class="input" type="text" id="shareable_link" name="shareable_link" value="{{ Auth::check() ? route('register') . '?referral_code=' . Auth::user()->own_referral_code : '' }}" style="position: absolute; left: -9999px;">
-                                    <button class="btn btn-sm btn-outline-secondary" onclick="copyShareableLink()">Share
-                                        Link</button>
-                                </a></li>
-                            <li><a class="dropdown-item" href="#">
-                                <div>
-                                        {{-- <span>Referral Code: {{ Auth::user()->own_referral_code }}</span> --}}
-                                        <input type="hidden" id="hiddenReferralCode" value="{{ Auth::user()->own_referral_code }}">
-                                        <button class="btn btn-sm btn-outline-secondary" onclick="copyReferralCode()">Copy Code</button>
-                                    </div>
-                                </a></li>
-                        </ul>
-                    </li>
-
-                </div>
-
+                @if (Auth::check() && Auth::user()->admin_approvel_status === 'Approved')
+                    <div class="d-flex">
+                        <li class="nav-item dropdown ">
+                            <a id="navbarDropdown" class="nav-link p-0 p-lg-2 dropdown-toggle" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Refer a Friend
+                            </a>
+                            <ul class="dropdown-menu refered-dropdown" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">
+                                        <input readonly class="input" type="text" id="shareable_link"
+                                            name="shareable_link"
+                                            value="{{ Auth::check() ? route('register') . '?referral_code=' . Auth::user()->own_referral_code : '' }}"
+                                            style="position: absolute; left: -9999px;">
+                                        <button class="btn btn-sm btn-outline-secondary"
+                                            onclick="copyShareableLink()">Share Link</button>
+                                    </a></li>
+                                <li><a class="dropdown-item" href="#">
+                                        <div>
+                                            {{-- <span>Referral Code: {{ Auth::user()->own_referral_code }}</span> --}}
+                                            <input type="hidden" id="hiddenReferralCode"
+                                                value="{{ Auth::user()->own_referral_code }}">
+                                            <button class="btn btn-sm btn-outline-secondary"
+                                                onclick="copyReferralCode()">Copy Code</button>
+                                        </div>
+                                    </a></li>
+                            </ul>
+                        </li>
+                    </div>
+                @endif
             </div>
         </div>
     </nav>
@@ -125,7 +137,7 @@
             <div class="col-md-4 link" id="links">
                 <h3>Quick Links</h3>
                 <a href="{{ route('whyus') }}">1. Why Us</a>
-                <a href="{{route('referral-users')}}">2. Affiliate Program</a>
+                <a href="{{ route('referral-users') }}">2. Affiliate Program</a>
                 <!-- <a href="#">3. Join Us</a> -->
                 <a href="{{ route('register') }}">3. Join Us</a>
             </div>

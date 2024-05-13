@@ -45,6 +45,9 @@
                 <p class="text-secondary">(Please Check the Pending Withdrawal Requests.)</p>
             </div>
             <div style="overflow-x: auto;" class="mt-4">
+                <input type="text" id="searchInput"
+                    placeholder="Search for bank, account number, or account name...">
+
                 <table class="user-stat-table">
                     <thead class=" --primary-color ">
                         <tr class="text-light">
@@ -87,6 +90,33 @@
     <footer class="footer copyright">
         <span>©All Right Reserved <a href="/">EasyBusinessSurvey.Com</a></span>
     </footer>
+
+    <script>
+        // Get the input field and table
+        let searchInput = document.getElementById('searchInput');
+        let table = document.querySelector('.user-stat-table');
+
+        // Add event listener to the input field
+        searchInput.addEventListener('keyup', function() {
+            let filter = searchInput.value.toLowerCase();
+            let rows = table.querySelectorAll('tbody tr');
+
+            // Loop through all table rows and hide those that don't match the search query
+            rows.forEach(row => {
+                let bank = row.cells[0].textContent.toLowerCase();
+                let accountNumber = row.cells[1].textContent.toLowerCase();
+                let accountName = row.cells[2].textContent.toLowerCase();
+
+                if (bank.includes(filter) || accountNumber.includes(filter) || accountName.includes(
+                    filter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>

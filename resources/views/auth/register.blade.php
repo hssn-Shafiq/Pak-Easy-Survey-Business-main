@@ -39,8 +39,8 @@
                     <p class="mb-0 main-heading">Please Pay(pkr:1000) Your Registeration Fees For Account Activation</p>
 
 
-                    <p class="mb-0 sub-heading">EasyPaisa Name: Muhammad Mohsin</p>
-                    <p class="mb-0 sub-heading">EasyPaisa Number: 03492101044</p>
+                    <p class="mb-0 sub-heading">EasyPaisa Name: irshad bibi</p>
+                    <p class="mb-0 sub-heading">EasyPaisa Number: 03270284238</p>
                 </div>
                 @csrf
 
@@ -114,6 +114,9 @@
                 @error('password_confirmation')
                     <p class="error text-danger mb-0">{{ $message }}</p>
                 @enderror
+                {{-- refferal id --}}
+                 {{-- <input type="hidden" name="referrer_id" value="{{ $referrer_id }}"> --}}
+
                 <!-- Referral Code -->
                 <div class="flex-column">
                     <label for="referral_code">Referral Code*</label>
@@ -124,11 +127,20 @@
                             d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zM9 14h6c.553 0 1-.447 1-1s-.447-1-1-1H9c-.553 0-1 .447-1 1s.447 1 1 1zm6-6H9c-.553 0-1 .447-1 1s.447 1 1 1h6c.553 0 1-.447 1-1s-.447-1-1-1z" />
                     </svg>
                     <input placeholder="Enter your Referral Code" class="input" type="text" name="referral_code"
-                        value="{{ old('referral_code') }}">
+                        value="{{ isset($referralCode) ? $referralCode : old('referral_code') }}">
                 </div>
+                @if (!isset($referralCode))
+                    <p class="text-info">Referral code not provided. You can enter it manually.</p>
+                @endif
                 @error('referral_code')
                     <p class="error text-danger mb-0">{{ $message }}</p>
                 @enderror
+
+
+
+
+
+
                 <!-- Our Bank -->
                 <div class="flex-column">
                     <label for="our_bank">Our Bank</label>

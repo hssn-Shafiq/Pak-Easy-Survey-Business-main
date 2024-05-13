@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,13 +18,13 @@
 
 <body>
     <nav>
-        <div class=" reg-header p-3">
+        <div class="reg-header p-3">
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col-12 col-lg-4 backlink ">
                         <div class="d-flex align-items-center gap-2">
                             <h5><i class="fa-solid fa-angles-left ms-3"></i></h5>
-                            <a class=" text-dark d-flex align-items-center gap-3 text-decoration-none"
+                            <a class="text-dark d-flex align-items-center gap-3 text-decoration-none"
                                 href="{{ route('admin') }}">
                                 <h5>Return to Dashboard</h5>
                             </a>
@@ -45,7 +46,7 @@
             </div>
             <div style="overflow-x: auto;" class="mt-4">
                 <table class="user-stat-table">
-                    <thead class=" --primary-color ">
+                    <thead class="--primary-color">
                         <tr class="text-light">
                             <th>Name</th>
                             <th>Email</th>
@@ -68,7 +69,7 @@
                                     @if ($user->admin_approvel_status === 'Pending')
                                         <b><span class="pending">Pending</span></b>
                                     @elseif ($user->admin_approvel_status === 'Approved')
-                                        <b ><span class="approved text-success">Approved</span></b>
+                                        <b><span class="approved text-success">Approved</span></b>
                                     @elseif ($user->admin_approvel_status === 'Rejected')
                                         <b class="text-danger"><span class="rejected">Rejected</span></b>
                                     @endif
@@ -80,10 +81,16 @@
                                             <button type="submit" class="btn btn-success">Approve</button>
                                         </form>
 
-                                        <form action="{{ route('admin.withdrawals.reject', ['id' => $user->id]) }}"
+                                        <form action="{{ route('admin.withdrawals.rejects', ['id' => $user->id]) }}"
                                             method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-danger">Reject</button>
+                                        </form>
+                                    @elseif ($user->admin_approvel_status === 'Rejected')
+                                        <form action="{{ route('admin.delete', $user->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     @endif
                                 </td>

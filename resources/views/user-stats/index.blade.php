@@ -67,12 +67,13 @@
                         </h3>
                         <a href="{{ route('admin.giftedUsers') }}" class="text-decoration-none text-dark">
                             <p>Check Now</p>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
         <!--=======customer-dashboard-banner Ends Here=======-->
-      
+
         <div class="container py-3 mt-5">
             <div class="row">
                 <div class="col-lg-6"></div>
@@ -124,10 +125,11 @@
                             <td>{{ $userStat->user->name }}</td>
                             <td>{{ $userStat->earnings }}</td>
                             <td>
-                                {{ $userStat->reviews()->count() * 10 }}
+                                {{ $userStat->user->earnings }}
+
                             </td>
                             <td>
-                                {{ $userStat->earnings + $userStat->reviews()->count() * 10 }}
+                                {{ $userStat->earnings + $userStat->user->earnings }}
                             </td>
                             <td>{{ $userStat->level }}</td>
                             <td>{{ $userStat->total_referrals }}

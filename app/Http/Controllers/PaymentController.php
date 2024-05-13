@@ -17,11 +17,44 @@ class PaymentController extends Controller
     public function approveUser($id)
     {
         $user = User::find($id);
-        $user->admin_approvel_status = 'Approved';
-        $user->save();
 
-        return redirect()->route('front.customer', $user->id)->with('success', 'User approved successfully.');
+        // Check if user is pending approval
+        if ($user && $user->admin_approvel_status === 'Pending') {
+            $user->admin_approvel_status = 'Approved';
+            $user->save();
+
+            // Grant referral earnings to parent user if applicable
+            if ($user->userStats && $user->userStats->referral_by) {
+                $referringUser = User::find($user->userStats->referral_by);
+                if ($referringUser && $referringUser->admin_approvel_status === 'Approved') {
+                    $referringUser->userStats->increment('earnings', 150);
+
+                    // Grant referral earnings to grandparent user if applicable
+                    if ($referringUser->userStats->referral_by) {
+                        $grandparentUser = User::find($referringUser->userStats->referral_by);
+                        if ($grandparentUser && $grandparentUser->admin_approvel_status === 'Approved') {
+                            $grandparentUser->userStats->increment('earnings', 50);
+
+                            // Grant referral earnings to most grandparent user if applicable
+                            if ($grandparentUser->userStats->referral_by) {
+                                $mostGrandparentUser = User::find($grandparentUser->userStats->referral_by);
+                                if ($mostGrandparentUser && $mostGrandparentUser->admin_approvel_status === 'Approved') {
+                                    $mostGrandparentUser->userStats->increment('earnings', 20);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return redirect()->route('front.customer', $user->id)->with('success', 'User approved successfully.');
+        }
+
+        // If user is not pending approval, redirect back or to an error page
+        return redirect()->back()->with('error', 'User is not pending approval.');
     }
+
+
 
 
 
@@ -43,13 +76,20 @@ class PaymentController extends Controller
     //  for admin
     public function reject(Request $request, $id)
     {
-        // Logic to reject the user with the given ID
         $user = User::findOrFail($id);
-        $user->admin_approvel_status = 'Rejected';
-        $user->save();
 
-        return redirect()->back()->with('success', 'User rejected successfully');
+        // Check if user is pending approval
+        if ($user->admin_approvel_status === 'Pending') {
+            $user->admin_approvel_status = 'Rejected';
+            $user->save();
+
+            return redirect('admin')->back()->with('success', 'User rejected successfully');
+        }
+
+        // If user is not pending approval, redirect back or to an error page
+        return redirect('admin')->with('error', 'User is not pending approval.');
     }
+
     // for  user
 
 
@@ -104,7 +144,27 @@ class PaymentController extends Controller
 
     public function giftedUsers()
     {
-        $giftedUsers = User::where('gift', '>', 0)->get();
+        $giftedUsers = User::where('earnings', '>', 0)->get();
         return view('front.show_earnings', ['giftedUsers' => $giftedUsers]);
+    }
+
+
+
+
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+
+        // Perform any additional checks or operations before deleting the user
+        if ($user->admin_approvel_status !== 'Rejected') {
+            return redirect()->back()->with('error', 'Cannot delete user that is not rejected.');
+        }
+
+        $user->delete();
+
+        return redirect()->back()->with('success', 'User deleted successfully.');
     }
 }

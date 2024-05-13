@@ -9,7 +9,14 @@
     <main class="content">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
-                <h4> {{ $message }}</h4>
+                <h6> {{ $message }}</h6>
+            </div>
+        @endif
+
+        @if ($massage = Session::get('error'))
+            <div class="totast text-danger">
+                <h6>{{ $massage }}</h6>
+
             </div>
         @endif
         <!--=======Intro-Section Starts Here=======-->
@@ -22,9 +29,12 @@
                             A Profitable platform for high-margin investment
                         </h5>
                         <h4 class="description">Referral Code:</h4>
-                        <input class="input bg-none" type="disabled" id="shareable_link" name="shareable_link"
-                            value="{{ Auth::check() ? route('register') . '?referral_code=' . Auth::user()->own_referral_code : '' }}"
-                            style="background: none; border: none; color: white !important;" disabled>
+                        @if (Auth::check() && Auth::user()->admin_approvel_status === 'Approved')
+                            <input class="input bg-none" type="text" id="shareable_link" name="shareable_link"
+                                value="{{ Auth::check() ? route('register') . '?referral_code=' . Auth::user()->own_referral_code : '' }}"
+                                style="background: none; border: none; color: white !important;" disabled>
+                        @endif
+
                     </div>
                     <div class="col-12 col-lg-5 image-col text-center d-flex justify-content-end">
                         <div class="image d-flex justify-content-center align-items-center">
@@ -45,12 +55,12 @@
                         <img src="assets/images/Vector (9).png" alt="">
                         <h3 class="text-secondary pt-3 ">
                             Refferal's Earning
-=======
-                    <img src="assets/images/Vector (1).png" alt="">
-                    <h3 class="text-secondary pt-3">
-                            Referral's Earning
-                        </h3>
-                        <h3> Rs {{ $totalEarnings }}</h3>
+
+                            <img src="assets/images/Vector (1).png" alt="">
+                            <h3 class="text-secondary pt-3">
+                                Referral's Earning
+                            </h3>
+                            <h3> Rs {{ $totalEarnings }}</h3>
                     </div>
                     <div class="col-md-4" id="dollar">
                         <img src="assets/images/Vector (1).png" alt="">
@@ -59,14 +69,27 @@
                         </h3>
                         <h3 class="">Rs {{ Auth::user()->earnings }}</h3>
                     </div>
+
+
+
+
                     {{-- <a href="" class="btn btn-primary">Open User Dashboard</a> --}}
 
                     {{-- @endif --}}
                     <div class="col-md-4" id="dollar">
                         <img src="assets/images/Vector (2).png" alt="">
-                        <h3 class="text-secondary py-3 ">Level: <span class="text-dark ms-3">{{$userLevel}}</span></h3>
+                        <h3 class="text-secondary py-3 ">Level: <span class="text-dark ms-3">{{ $userLevel }}</span></h3>
                         <p>Your level is {{ $userLevel }} out of 12</p>
                     </div>
+
+                    <div class="col-md-4" id="dollar">
+                        <img src="assets/images/Vector (1).png" alt="">
+                        <h3 class="text-secondary pt-3">
+                            Withdrawal
+                        </h3>
+                        <h3 class="">Rs: {{ $totalWithdrawalAmount }}</h3>
+                    </div>
+
                 </div>
             </div>
         </section>
