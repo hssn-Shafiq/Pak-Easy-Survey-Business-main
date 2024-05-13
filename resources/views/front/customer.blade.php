@@ -43,8 +43,9 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <!--=======Intro-Section Ends Here=======-->
+        </div>
+    </section>
+    <!--=======Intro-Section Ends Here=======-->
 
         <!--=======Cards-Section Starts Here=======-->
         <section id="cards-main-customer">
@@ -92,25 +93,24 @@
 
                 </div>
             </div>
-        </section>
-        <!--=======Cards-Section Ends Here=======-->
+        </div>
+    </section>
+    <!--=======Cards-Section Ends Here=======-->
 
-        <!--=======Explore-Messege-Section Starts Here=======-->
-        <section id="Explore-massege-main">
-            <div class="container mt-5">
-                <div class="row d-flex  justify-content-center" id="op-pic-main">
-                    <div class="d-flex align-items-center" id="op-pic"><img src="assets/images/welcome.png"
-                            alt="">
-                    </div>
-                </div>
-                <div class="row text-center mt-3">
-                    <h4>Explore New Oppurtunities</h4>
-                    <p class="wa">Find Your Work By Clicking On This Link <a
-                            href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su">WhatsappGroup</a></p>
+    <!--=======Explore-Messege-Section Starts Here=======-->
+    <section id="Explore-massege-main">
+        <div class="container mt-5">
+            <div class="row d-flex  justify-content-center" id="op-pic-main">
+                <div class="d-flex align-items-center" id="op-pic"><img src="assets/images/welcome.png" alt="">
                 </div>
             </div>
-        </section>
-        <!--=======Explore-Messege-Section Starts Here=======-->
-    </main>
-    <!--=======Main Body Ends Here=======-->
+            <div class="row text-center mt-3">
+                <h4>Explore New Oppurtunities</h4>
+                <p class="wa">Find Your Work By Clicking On This Link <a href="https://chat.whatsapp.com/G1cWIDlc57LEz1ZmEAl6Su">WhatsappGroup</a></p>
+            </div>
+        </div>
+    </section>
+    <!--=======Explore-Messege-Section Starts Here=======-->
+</main>
+<!--=======Main Body Ends Here=======-->
 @endsection

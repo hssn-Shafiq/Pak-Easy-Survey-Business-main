@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Start Earning Today | Registered To Pak Easy Business Survey -  A Merging Platform to Earn Through Surveys and Referrals </title>
     <link rel="stylesheet" href="{{ asset('assets/css/stylesheet.css') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -36,7 +38,7 @@
             <form class="registration-form" method="POST" action="{{ route('register') }}">
                 <h3 class="text-center title">WELCOME TO PAK EBS</h3>
                 <div class="registration-fee text-center">
-                    <p class="mb-0 main-heading">Please Pay(pkr:1000) Your Registeration Fees For Account Activation</p>
+                    <p class="mb-0 main-heading">Please Pay(pkr:1100) Your Registeration Fees For Account Activation</p>
 
 
                     <p class="mb-0 sub-heading">EasyPaisa Name: irshad bibi</p>
