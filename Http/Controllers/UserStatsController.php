@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\UserStats;
+use App\Models\Withdrawal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Withdrawal;
@@ -165,6 +166,7 @@ class UserStatsController extends Controller
 
 
 
+
     public function ShowgetTotalUsers()
     {
         $totalUsers = User::count();
@@ -189,6 +191,4 @@ class UserStatsController extends Controller
 
         return view('user-stats.referral-users', ['referralUsers' => $referralUsers]);
     }
-
-
 }

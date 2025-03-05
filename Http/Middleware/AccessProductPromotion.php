@@ -17,7 +17,10 @@ class AccessProductPromotion
             return $next($request);
         }
 
+<<<<<<< HEAD:Http/Middleware/AccessProductPromotion.php
       
+=======
+>>>>>>> f9107805074084ddbe3d9734dd26fc7c9a85c378:app/Http/Middleware/AccessProductPromotion.php
 
         // Check if user has referred a user in the last 7 days
         $referralCutoffDate = now()->subDays(7);
@@ -28,7 +31,11 @@ class AccessProductPromotion
         }
 
         // User does not meet conditions, redirect or show an error
+<<<<<<< HEAD:Http/Middleware/AccessProductPromotion.php
         return redirect()->route('customer')->with('error', 'You have not add any user last 7 days .Please add new user and than continue .');
+=======
+        return redirect()->route('user')->with('error', 'You do not have access to this page.');
+>>>>>>> f9107805074084ddbe3d9734dd26fc7c9a85c378:app/Http/Middleware/AccessProductPromotion.php
     }
 }
 

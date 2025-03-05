@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Review;
 use App\Models\Message;
 use App\Models\Product;
+use App\Models\Referral;
 use App\Models\UserStats;
 use App\Models\Withdrawal;
 use Laravel\Sanctum\HasApiTokens;
@@ -39,6 +40,9 @@ class User extends Authenticatable
         'payment_date_time',
         'admin_approvel_status',
         'gift',
+        'referrer_id',
+        'referral_created_at',
+
     ];
 
 
@@ -101,9 +105,9 @@ class User extends Authenticatable
     {
         return $this->stats && $this->stats->created_at >= Carbon::now()->subDays(7);
     }
-    
-    
-    
+
+
+
      public function referredUsers()
     {
         return $this->hasMany(Referral::class, 'referrer_id');

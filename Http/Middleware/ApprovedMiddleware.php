@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminAccess
+class ApprovedMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,8 @@ class AdminAccess
      */
     public function handle($request, Closure $next)
     {
-        $allowedEmails  = 'bilal@gmail.com';
-
-        if ($request->user()->email !== $allowedEmails) {
-            abort(403, 'jab ye tera page hai nhi hai tu phire idher kaya kar  rhe hai ');
+        if (!auth()->check() || auth()->user()->admin_approval_status !== 'approved') {
+            return redirect('/customer')->with('message', 'Please get approved by the admin before accessing the customer page.');
         }
 
         return $next($request);
